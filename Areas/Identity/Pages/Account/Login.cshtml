@@ -48,34 +48,40 @@
     <div class="col-md-6 col-md-offset-2">
         <section>
             <h4>Use another service to log in.</h4>
-            <hr />
+            <hr /> 
             @{
                 if ((Model.ExternalLogins?.Count ?? 0) == 0)
                 {
                     <div>
                         <p>
-                            There are no external authentication services configured. See <a href="https://go.microsoft.com/fwlink/?LinkID=532715">this article</a>
-                            for details on setting up this ASP.NET application to support logging in via external services.
+                            There are no external authentication services configured.
                         </p>
                     </div>
                 }
                 else
                 {
-                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
-                        <div class="form-row">
-                            <div class="col-2">
-                                <img src="~/img/google-logo.png" class="float-right"/>
-                            </div>
-                            <div class="col-10">
-                                <p>
-                                    @foreach (var provider in Model.ExternalLogins)
-                                    {
-                                        <button type="submit" class="btn btn-light" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">Log in with @provider.DisplayName</button>
-                                    }
-                                </p>
-                            </div>
-                        </div>
-                    </form>
+                <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+
+                    <button type="submit" class="btn btn-light" name="provider" value="@Model.ExternalLogins[0].Name" title="Log in using your @Model.ExternalLogins[0].DisplayName account">
+                        <img src="~/img/google-logo.png" class="float-left my-sm-1 mr-2" height="20" /><span class="align-middle">Log in with @Model.ExternalLogins[0].DisplayName</span>
+                    </button>
+                    <br /><br />
+                    <button type="submit" class="btn btn-light" name="provider" value="@Model.ExternalLogins[1].Name" title="Log in using your @Model.ExternalLogins[1].DisplayName account">
+                        <img src="~/img/facebook-logo.jpg" class="float-left my-sm-1 mr-2" height="20" /><span class="align-middle">Log in with @Model.ExternalLogins[1].DisplayName</span>
+                    </button>
+                    <br /><br />
+                    <button type="submit" class="btn btn-light" name="provider" value="@Model.ExternalLogins[2].Name" title="Log in using your @Model.ExternalLogins[2].DisplayName account">
+                        <img src="~/img/logo-microsoft.png" class="float-left my-sm-1 mr-2" height="20" /><span class="align-middle">Log in with @Model.ExternalLogins[2].DisplayName</span>
+                    </button>
+                    <br /><br />
+                    <button type="submit" class="btn btn-light" name="provider" value="@Model.ExternalLogins[3].Name" title="Log in using your @Model.ExternalLogins[3].DisplayName account">
+                        <img src="~/img/twitter-logo.png" class="float-left my-sm-1 mr-2" height="20" /><span class="align-middle">Log in with @Model.ExternalLogins[3].DisplayName</span>
+                    </button>
+                    <br /><br />
+                    <button type="submit" class="btn btn-light" name="provider" value="@Model.ExternalLogins[4].Name" title="Log in using your @Model.ExternalLogins[4].DisplayName account">
+                        <img src="~/img/github-logo.png" class="float-left my-sm-1 mr-2" height="20" /><span class="align-middle">Log in with @Model.ExternalLogins[4].DisplayName</span>
+                    </button>
+                </form>
                 }
             }
         </section>

@@ -35,13 +35,34 @@ namespace FagElGamous
                     Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddAuthentication()
-                .AddGoogle(options =>
-                {
-                    IConfigurationSection googleAuthNSection =
-                        Configuration.GetSection("Authentication:Google");
+                .AddGoogle(googleOptions =>
+                    {
+                        IConfigurationSection googleAuthNSection =
+                            Configuration.GetSection("Authentication:Google");
 
-                    options.ClientId = googleAuthNSection["ClientId"];
-                    options.ClientSecret = googleAuthNSection["ClientSecret"];
+                        googleOptions.ClientId = googleAuthNSection["ClientId"];
+                        googleOptions.ClientSecret = googleAuthNSection["ClientSecret"];
+                    })
+                .AddFacebook(facebookOptions =>
+                {
+                    facebookOptions.AppId = Configuration["Authentication:Facebook:AppId"];
+                    facebookOptions.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
+                })
+                .AddMicrosoftAccount(microsoftOptions =>
+                {
+                    microsoftOptions.ClientId = Configuration["Authentication:Microsoft:ClientId"];
+                    microsoftOptions.ClientSecret = Configuration["Authentication:Microsoft:ClientSecret"];
+                })
+                .AddTwitter(twitterOptions =>
+                {
+                    twitterOptions.ConsumerKey = Configuration["Authentication:Twitter:ConsumerAPIKey"];
+                    twitterOptions.ConsumerSecret = Configuration["Authentication:Twitter:ConsumerSecret"];
+                    twitterOptions.RetrieveUserDetails = true;
+                })
+                .AddGitHub(githubOptions =>
+                {
+                    githubOptions.ClientId = Configuration["Authentication:GitHub:ClientID"];
+                    githubOptions.ClientSecret = Configuration["Authentication:GitHub:SecretID"];
                 });
         }
 
