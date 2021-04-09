@@ -23,6 +23,11 @@ namespace FagElGamous.Controllers
             return View();
         }
 
+        public IActionResult Summary()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();
