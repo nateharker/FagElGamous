@@ -12,6 +12,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using FagElGamous.Data;
+using Microsoft.AspNetCore.Identity.UI.Services;
+using FagElGamous.Services;
+using FagElGamous.Models;
 
 namespace FagElGamous
 {
@@ -64,6 +67,9 @@ namespace FagElGamous
                     githubOptions.ClientId = Configuration["Authentication:GitHub:ClientID"];
                     githubOptions.ClientSecret = Configuration["Authentication:GitHub:SecretID"];
                 });
+
+                services.AddTransient<IEmailSender, EmailSender>();
+                services.Configure<AuthMessageSenderOptions>(Configuration);
         }
           
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
