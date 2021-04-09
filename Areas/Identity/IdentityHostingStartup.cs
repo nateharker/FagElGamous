@@ -17,10 +17,11 @@ namespace FagElGamous.Areas.Identity
             builder.ConfigureServices((context, services) => {
                 services.AddDbContext<FagElGamousContext>(options =>
                     options.UseSqlServer(
-                        context.Configuration.GetConnectionString("FagElGamousContextConnection")));
+                        context.Configuration.GetConnectionString("FagElGamousIdentityConnection")));
 
-                services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                services.AddIdentity<IdentityUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
                     .AddEntityFrameworkStores<FagElGamousContext>();
+
             });
         }
     }
