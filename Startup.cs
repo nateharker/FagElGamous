@@ -35,7 +35,7 @@ namespace FagElGamous
 
             services.AddDbContext<FagElGamousContext>(options =>
                 options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
+                    Configuration["ConnectionStrings:FagElGamousContextConnection"]));
 
           services.AddAuthentication()
                 .AddGoogle(googleOptions =>
