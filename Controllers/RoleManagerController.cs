@@ -25,6 +25,23 @@ namespace FagElGamous.Controllers
         }
 
         [HttpPost]
+        public async Task<IActionResult> Index(string roleId)
+        {
+            var role = await _roleManager.FindByIdAsync(roleId);
+            if (role == null)
+            {
+                return View();
+            }
+            var result = await _roleManager.DeleteAsync(role);
+            if (!result.Succeeded)
+            {
+                ModelState.AddModelError("", "Unable to delete role");
+                return View();
+            }
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
         public async Task<IActionResult> AddRole(string roleName)
         {
             if (roleName != null)
