@@ -2,26 +2,31 @@
 for details on configuring this project to bundle and minify static web assets. */
 
 a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+    z-index: 1;
 }
 
 /* Provide sufficient contrast against white background */
 a {
-  color: #0366d6;
+    color: #997B66;
 }
 
 .btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+    color: #997B66;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.btn-light {
+    color: #997B66;
 }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+    color: #997B66;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
 }
 
 /* Sticky footer styles
@@ -43,7 +48,7 @@ html {
 }
 
 .box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, 0);
 }
 .background{
     color: bisque;
@@ -61,8 +66,10 @@ html {
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+    font-family:'Roboto', sans-serif;
+   
 }
 .footer {
   position: absolute;
@@ -73,14 +80,14 @@ body {
 }
 .button {
     display: inline-block;
-    border-radius: 4px;
-    background-color: #fbd68c;
+    border-radius: 3px;
+    background-color: #FFCB69;
     border: none;
-    color: black;
+    color: #997B66;
     text-align: center;
-    font-size: 20px;
+    font-size: 16px;
     padding: 20px;
-    width: 150px;
+    width: 280px;
     transition: all 0.5s;
     cursor: pointer;
     margin: 5px;
@@ -111,3 +118,55 @@ body {
             right: 0;
         }
 
+/* lora-regular - latin */
+/* roboto-regular - latin */
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    color: #997B66;
+    src: url('../fonts/roboto-v27-latin-regular.eot'); /* IE9 Compat Modes */
+    src: local(''), url('../fonts/roboto-v27-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../fonts/roboto-v27-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+    url('../fonts/roboto-v27-latin-regular.woff') format('woff'), /* Modern Browsers */
+    url('../fonts/roboto-v27-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+    url('../fonts/roboto-v27-latin-regular.svg#Roboto') format('svg'); /* Legacy iOS */
+}
+
+
+.masthead {
+    min-height: 300px;
+    background-image: url(../img/banner1-Edit.jpg);
+    background-position: top;
+    background-repeat: repeat-x;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* Needed to position the navbar */
+    position: relative;
+}
+
+.fontsize{
+    font-size: larger;
+}
+
+/* Position the navbar container inside the image */
+
+/* The navbar */
+.topnav {
+    overflow: hidden;
+    background: rgba(0,0,0,0.2);
+    width: 100%;
+}
+
+
+    .topnav a:hover {
+        background-color: #fbd68c;
+        color: black;
+    }
+
+.fontwhite {
+    color: white;
+    font-weight: bold;
+}
