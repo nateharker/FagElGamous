@@ -172,3 +172,9 @@ body {
     color: white;
     font-weight: bold;
 }
+.nav > li {
+    display: inline-block;
+}
+li {
+    display: inline;
+}
