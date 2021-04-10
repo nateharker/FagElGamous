@@ -162,8 +162,10 @@ body {
 
 
     .topnav a:hover {
-        background-color: #fbd68c;
-        color: black;
+       
+        color: black
+        width: 100%
+        height: 100%;
     }
 
 .fontwhite {
