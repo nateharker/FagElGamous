@@ -35,6 +35,7 @@ namespace FagElGamous.Controllers
                 thisViewModel.FirstName = user.FirstName;
                 thisViewModel.LastName = user.LastName;
                 thisViewModel.UserType = user.UserType;
+                thisViewModel.OrganizationName = user.OrganizationName;
                 thisViewModel.Roles = await GetUserRoles(user);
                 userRolesViewModel.Add(thisViewModel);
             }
