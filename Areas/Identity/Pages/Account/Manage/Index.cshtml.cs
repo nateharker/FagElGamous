@@ -62,7 +62,7 @@ namespace FagElGamous.Areas.Identity.Pages.Account.Manage
             var firstName = user.FirstName;
             var lastName = user.LastName;
             var profilePicture = user.ProfilePicture;
-            Username = userName;
+            //Username = userName;
             var userType = user.UserType;
             var organizationName = user.OrganizationName;
 
@@ -119,6 +119,7 @@ namespace FagElGamous.Areas.Identity.Pages.Account.Manage
             var lastName = user.LastName;
             var userType = user.UserType;
             var organizationName = user.OrganizationName;
+
             if (Input.FirstName != firstName)
             {
                 user.FirstName = Input.FirstName;
