@@ -11,18 +11,18 @@ using System.Threading.Tasks;
 
 namespace FagElGamous.Controllers
 {
-    public class UserRolesController : Controller
+    [Authorize(Roles = "Admin")]
+    public class UserManagerController : Controller
     {
         private readonly UserManager<AppUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
 
-        public UserRolesController(UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager)
+        public UserManagerController(UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager)
         {
             _roleManager = roleManager;
             _userManager = userManager;
         }
 
-        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Index()
         {
             var users = await _userManager.Users.ToListAsync();
@@ -42,7 +42,6 @@ namespace FagElGamous.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Manage(string userId)
         {
             ViewBag.userId = userId;
@@ -75,7 +74,6 @@ namespace FagElGamous.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Manage(List<ManageUserRolesViewModel> model, string userId)
         {
             var user = await _userManager.FindByIdAsync(userId);
@@ -98,6 +96,36 @@ namespace FagElGamous.Controllers
             }
             return RedirectToAction("Index");
         }
+
+        [HttpGet]
+        public async Task<IActionResult> DeleteUserConfirm(string userId)
+        {
+            AppUser user = await _userManager.FindByIdAsync(userId);
+            if (user == null)
+            {
+                return NotFound($"Unable to load user with ID '{userId}'.");
+            }
+            return View(user);
+        }
+
+        [HttpPost, ActionName("DeleteUserConfirm")]
+        public async Task<IActionResult> Delete(string userId)
+        {
+            AppUser user = await _userManager.FindByIdAsync(userId);
+            if (user == null)
+            {
+                return NotFound($"Unable to find user with ID '{userId}'.");
+            }
+
+            var result = await _userManager.DeleteAsync(user);
+            if (!result.Succeeded)
+            {
+                ModelState.AddModelError("", "Unable to delete user");
+                return View("DeleteUserConfirm", userId);
+            }
+            return RedirectToAction("Index"); 
+        }
+
         private async Task<List<string>> GetUserRoles(AppUser user)
         {
             return new List<string>(await _userManager.GetRolesAsync(user));

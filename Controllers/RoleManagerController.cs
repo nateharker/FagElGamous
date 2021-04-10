@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace FagElGamous.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class RoleManagerController : Controller
     {
         private readonly RoleManager<IdentityRole> _roleManager;
@@ -17,14 +18,12 @@ namespace FagElGamous.Controllers
             _roleManager = roleManager;
         }
 
-        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Index()
         {
             var roles = await _roleManager.Roles.ToListAsync();
             return View(roles);
         }
 
-        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<IActionResult> AddRole(string roleName)
         {
