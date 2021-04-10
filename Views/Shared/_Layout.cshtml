@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Fag el-Gamous</title>
+    <title >@ViewData["Title"] - Fag el-Gamous</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="icon" type="image/x-icon" href="~/img/pyramid1.png" />
@@ -12,12 +12,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300&display=swap" rel="stylesheet" type="text/css">
 </head>
-<body style="background-color: #fae8c3;">
+<body style="        color: #997B66;
+        background-color: #F1DCA7;">
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3" style="background-color: #fbd68c;">
+
+
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow topnav fontwhite" style="color: #997B66; background-color: #FFCB69;">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
-                    <img src="~/img/pyramid1.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                <a class="navbar-brand fontsize" asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="~/img/pyramid1.png" width="30" />
                     Fag el-Gamous
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -26,53 +29,37 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <partial name="_LoginPartial" />
-                    
-                  
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-dark fontsize" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Summary">Summary</a>
+                            <a class="nav-link text-dark fontsize" asp-area="" asp-controller="Home" asp-action="Summary">Summary</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
 
+                    </ul>
                 </div>
+
             </div>
         </nav>
+
     </header>
+    <br /><br /><br /><br />
     <div class="container">
-        <main role="main" class="pb-3">
-
-
-            <div class="row">
-                <div class="col-sm-2"></div>
-                <div class="col-sm-2"></div>
-                <div class="col-sm-8">
-                    <form class="form-inline" width="400">
-                        <input class="form-control " type="search" style="width: 600px;" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-dark" type="submit">Search</button>
-                    </form>
-                </div>
-                <div class="col-sm-2"></div>
+        <div class="row">
+            <div class="col-sm">
 
             </div>
-            <div class="row">
-                <div class="col-sm-2"></div>
-                <div class="col-sm-8">
-                  @RenderBody()
-                </div>
-                <div class="col-sm-2"></div>
+            <div class="col-lg-10">
+                @RenderBody()
+            </div>
+            <div class="col-sm">
 
             </div>
-
-
-
-        </main>
+        </div>
     </div>
+
+
 
     <footer class="border-top footer text-muted">
         <div class="container">
