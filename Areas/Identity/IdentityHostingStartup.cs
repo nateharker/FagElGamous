@@ -1,5 +1,6 @@
 ﻿using System;
 using FagElGamous.Data;
+using FagElGamous.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
@@ -19,9 +20,10 @@ namespace FagElGamous.Areas.Identity
                     options.UseSqlServer(
                         context.Configuration.GetConnectionString("FagElGamousIdentityConnection")));
 
-                services.AddIdentity<IdentityUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
-                    .AddEntityFrameworkStores<FagElGamousContext>();
-
+                services.AddIdentity<AppUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
+                    .AddEntityFrameworkStores<FagElGamousContext>()
+                    .AddDefaultUI()
+                    .AddDefaultTokenProviders();
             });
         }
     }

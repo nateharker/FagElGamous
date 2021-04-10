@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FagElGamous.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace FagElGamous.Data
 {
-    public class FagElGamousContext : IdentityDbContext<IdentityUser>
+    public class FagElGamousContext : IdentityDbContext<AppUser>
     {
         public FagElGamousContext(DbContextOptions<FagElGamousContext> options)
             : base(options)
