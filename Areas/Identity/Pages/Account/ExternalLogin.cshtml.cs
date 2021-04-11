@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Net.Mail;
 using System.Security.Claims;
 using System.Text;
 using System.Text.Encodings.Web;
@@ -51,7 +52,20 @@ namespace FagElGamous.Areas.Identity.Pages.Account
         {
             [Required]
             [EmailAddress]
+            [Display(Name = "Email")]
             public string Email { get; set; }
+
+            [Required]
+            [Display(Name = "First Name")]
+            public string FirstName { get; set; }
+
+            [Required]
+            [Display(Name = "Last Name")]
+            public string LastName { get; set; }
+
+            [Required]
+            [Display(Name = "User Type")]
+            public string UserType { get; set; }
         }
 
         public IActionResult OnGetAsync()
@@ -122,7 +136,9 @@ namespace FagElGamous.Areas.Identity.Pages.Account
 
             if (ModelState.IsValid)
             {
-                var user = new AppUser { UserName = Input.Email, Email = Input.Email };
+                MailAddress address = new MailAddress(Input.Email);
+                string userName = address.User;
+                var user = new AppUser { UserName = userName, Email = Input.Email, FirstName = Input.FirstName, LastName = Input.LastName, UserType = Input.UserType };
 
                 var result = await _userManager.CreateAsync(user);
                 if (result.Succeeded)
