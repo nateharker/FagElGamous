@@ -13,6 +13,8 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using FagElGamous.Models;
 using System.Net.Mail;
+using Microsoft.AspNetCore.WebUtilities;
+using System.Text;
 
 namespace FagElGamous.Areas.Identity.Pages.Account
 {
@@ -22,14 +24,17 @@ namespace FagElGamous.Areas.Identity.Pages.Account
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
         private readonly ILogger<LoginModel> _logger;
+        private readonly IEmailSender _emailSender;
 
         public LoginModel(SignInManager<AppUser> signInManager, 
             ILogger<LoginModel> logger,
-            UserManager<AppUser> userManager)
+            UserManager<AppUser> userManager,
+            IEmailSender emailSender)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
+            _emailSender = emailSender;
         }
 
         [BindProperty]
@@ -116,7 +121,23 @@ namespace FagElGamous.Areas.Identity.Pages.Account
                 if (result.IsLockedOut)
                 {
                     _logger.LogWarning("User account locked out.");
-                    return RedirectToPage("./Lockout");
+                    
+                    var user = await _userManager.FindByEmailAsync(Input.Email);
+
+                    var code = await _userManager.GeneratePasswordResetTokenAsync(user);
+                    code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
+                    var callbackUrl = Url.Page(
+                        "/Account/ResetPassword",
+                        pageHandler: null,
+                        values: new { area = "Identity", code },
+                        protocol: Request.Scheme);
+
+                    await _emailSender.SendEmailAsync(
+                        Input.Email,
+                        "Account Lockout",
+                        $"Your account is locked out, please reset your password by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+
+                    return RedirectToPage("./Lockout"); ;
                 }
                 else
                 {

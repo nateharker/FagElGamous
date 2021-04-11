@@ -20,7 +20,13 @@ namespace FagElGamous.Areas.Identity
                     options.UseSqlServer(
                         context.Configuration.GetConnectionString("FagElGamousIdentityConnection")));
 
-                services.AddIdentity<AppUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
+                services.AddIdentity<AppUser, IdentityRole>(options =>
+                    {
+                        options.SignIn.RequireConfirmedAccount = true;
+                        options.Lockout.AllowedForNewUsers = true;
+                        options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(60);
+                        options.Lockout.MaxFailedAccessAttempts = 5;
+                    })
                     .AddEntityFrameworkStores<FagElGamousContext>()
                     .AddDefaultUI()
                     .AddDefaultTokenProviders();
