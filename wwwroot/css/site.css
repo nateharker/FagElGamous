@@ -15,8 +15,8 @@ a {
 
 .btn-primary {
     color: #997B66;
-    background-color: #1b6ec2;
-    border-color: #1861ac;
+    background-color: #FFCB69;
+    border-color: #FFCB69;
 }
 
 .btn-light {
@@ -25,8 +25,8 @@ a {
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
     color: #997B66;
-    background-color: #1b6ec2;
-    border-color: #1861ac;
+    background-color: #FFCB69;
+    border-color: #FFCB69;
 }
 
 /* Sticky footer styles
@@ -92,13 +92,48 @@ body {
     cursor: pointer;
     margin: 5px;
 }
+.button2 {
+    display: inline-block;
+    border-radius: 3px;
+    background-color: #FFCB69;
+    border: none;
+    color: #997B66;
+    text-align: center;
+    font-size: 13px;
+    padding: 8px;
+    width: 120px;
+    height: 40px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 4px;
+}
 
-    .button span {
-        cursor: pointer;
-        display: inline-block;
-        position: relative;
-        transition: 0.5s;
+.btn-info {
+    background-color: #FFCB69;
+    color: #997B66;
+    
+}
+    .btn-info:hover {
+        background-color: #D08C60;
+        color: wheat;
     }
+
+.btn-primary {
+    background-color: #FFCB69;
+    color: #997B66;
+}
+
+    .btn-primary:hover {
+        background-color: #D08C60;
+        color: wheat;
+    }
+
+.button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
 
         .button span:after {
             content: '\00bb';
