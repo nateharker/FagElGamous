@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace FagElGamous.Migrations
+namespace FagElGamous.Migrations.FagElGamous
 {
     [DbContext(typeof(FagElGamousContext))]
-    [Migration("20210409225833_PropUpdate")]
-    partial class PropUpdate
+    [Migration("20210412160017_Update")]
+    partial class Update
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

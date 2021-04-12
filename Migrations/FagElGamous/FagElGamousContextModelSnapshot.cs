@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace FagElGamous.Migrations
+namespace FagElGamous.Migrations.FagElGamous
 {
     [DbContext(typeof(FagElGamousContext))]
     partial class FagElGamousContextModelSnapshot : ModelSnapshot

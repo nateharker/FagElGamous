@@ -78,6 +78,14 @@ namespace FagElGamous.Areas.Identity.Pages.Account
             var result = await _userManager.ResetPasswordAsync(user, Input.Code, Input.Password);
             if (result.Succeeded)
             {
+                if(user.LockoutEnd != null)
+                {
+                    if (user.LockoutEnd > DateTime.Now)
+                    {
+                        user.LockoutEnd = DateTime.Now;
+                        await _userManager.UpdateAsync(user);
+                    }
+                }
                 return RedirectToPage("./ResetPasswordConfirmation");
             }
 

@@ -1,4 +1,4 @@
-﻿@model List<Microsoft.AspNetCore.Identity.IdentityRole>
+﻿@model PolicyRolesViewModel
 @{
     ViewData["Title"] = "Role Manager";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -8,7 +8,7 @@
     <div class="input-group">
         <input name="roleName" class="form-control w-25">
         <span class="input-group-btn">
-            <button class="btn btn-info">Add New Role</button>
+            <button class="btn btn-secondary">Add New Role</button>
         </span>
     </div>
 </form>
@@ -21,18 +21,107 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var role in Model)
+        @foreach (var role in Model.Roles)
         {
             <tr>
                 <td>@role.Id</td>
                 <td>@role.Name</td>
-                <td>
+                <td style="text-align:right;">
                     <form asp-controller="RoleManager" asp-action="Index">
                         <input type="hidden" asp-for="@role.Id" name="roleId" />
-                        <input type="submit" value="Delete" class="btn btn-danger" />
+                        <input type="submit" value="Delete" class="btn btn-sm btn-danger" />
                     </form>
                 </td>
             </tr>
         }
     </tbody>
 </table>
+<br /><hr /><br />
+<div class="row">
+    <div class="col-6">
+        <h3>Write Policy Roles</h3>
+        <h5>Ability to create new records and edit existing records</h5>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Role</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var role in Model.WriteRoles)
+                {
+                    <tr>
+                        <td>@role.Role</td>
+                        <td style="text-align:right;">
+                            <form asp-action="WriteRoleDelete" method="post">
+                                <input type="hidden" value="@role.WriteRoleId" name="roleId" />
+                                <input type="submit" value="Remove" class="btn btn-sm btn-danger" />
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <form method="post" asp-action="ManageWriteGroup" asp-controller="RoleManager">
+            <p>Select role to add to Write Group</p>
+            <div class="input-group">
+                <select required class="form-control" name="roleName">
+                    <option value="">Select One...</option>
+                    @foreach (var role in Model.Roles)
+                    {
+                        <option value="@role.Name">@role.Name</option>
+                    }
+                </select>
+                <span class="input-group-btn">
+                    <button class="btn btn-secondary">Add to Group</button>
+                </span>
+                <div asp-validation-summary="All" class="text-danger"></div>
+            </div>
+        </form>
+    </div>
+
+    <div class="col-6">
+        <h3>Delete Policy Roles</h3>
+        <h5>Ability to delete records, manage user roles and delete users</h5>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Role</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var role in Model.DeleteRoles)
+                {
+                    <tr>
+                        <td>@role.Role</td>
+                        <td style="text-align:right;">
+                            <form asp-action="DeleteRoleDelete" method="post">
+                                <input type="hidden" value="@role.DeleteRoleId" name="roleId" />
+                                <input type="submit" value="Remove" class="btn btn-sm btn-danger" />
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <form method="post" asp-action="ManageDeleteGroup" asp-controller="RoleManager">
+            <p>Select role to add to Delete Group</p>
+            <div class="input-group">
+                <select required class="form-control" name="roleName">
+                    <option value="">Select One...</option>
+                    @foreach (var role in Model.Roles)
+                    {
+                        <option value="@role.Name">@role.Name</option>
+                    }
+                </select>
+                <span class="input-group-btn">
+                    <button class="btn btn-secondary">Add to Group</button>
+                </span>
+                <div asp-validation-summary="All" class="text-danger"></div>
+            </div>
+        </form>
+    </div>
+</div>
+<br /><br />

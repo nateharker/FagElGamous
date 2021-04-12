@@ -26,7 +26,7 @@ namespace FagElGamous.Areas.Identity.Data
                 Email = "admin@gmail.com",
                 FirstName = "Kerry",
                 LastName = "Muhlestein",
-                UserType = "Professor",
+                UserType = "Researcher",
                 EmailConfirmed = true,
                 PhoneNumberConfirmed = true
             };
