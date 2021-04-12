@@ -7,6 +7,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
+using FagElGamous.Areas.Identity.Data;
 using FagElGamous.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -144,6 +145,8 @@ namespace FagElGamous.Areas.Identity.Pages.Account
                     if (result.Succeeded)
                     {
                         _logger.LogInformation("User created an account using {Name} provider.", info.LoginProvider);
+                        //Assigns all newly registered users the public role by default
+                        await _userManager.AddToRoleAsync(user, Enums.Roles.Public.ToString());
 
                         //var userId = await _userManager.GetUserIdAsync(user);
                         //var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
@@ -158,7 +161,7 @@ namespace FagElGamous.Areas.Identity.Pages.Account
                         //    $"Thank you for registering for an account with the BYU Egypt Excavation Project - Fag el-Gamous Cemetery Database!<br/><br/>Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 
                         // If account confirmation is required, we need to show the link if we don't have a real email sender
-                        
+
                         //if (_userManager.Options.SignIn.RequireConfirmedAccount)
                         //{
                         //    return RedirectToPage("./RegisterConfirmation", new { Email = Input.Email });

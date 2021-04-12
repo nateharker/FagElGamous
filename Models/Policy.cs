@@ -29,5 +29,37 @@ namespace FagElGamous.Models
             }
             return deleteRoles;
         }
+
+        public static bool IsInWriteRole(IList<string> roles, PolicyRolesDbContext context)
+        {
+            bool inList = false;
+            IEnumerable<string> WriteRoles = GetWriteRoles(context);
+            foreach(var role in roles)
+            {
+                var result = WriteRoles.Contains(role);
+                if (result)
+                {
+                    inList = true;
+                    break;
+                }
+            }
+            return inList;
+        }
+
+        public static bool IsInDeleteRole(IList<string> roles, PolicyRolesDbContext context)
+        {
+            bool inList = false;
+            IEnumerable<string> DeleteRoles = GetDeleteRoles(context);
+            foreach (var role in roles)
+            {
+                var result = DeleteRoles.Contains(role);
+                if (result)
+                {
+                    inList = true;
+                    break;
+                }
+            }
+            return inList;
+        }
     }
 }
