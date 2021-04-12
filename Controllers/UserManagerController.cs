@@ -23,9 +23,17 @@ namespace FagElGamous.Controllers
             _userManager = userManager;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string usertype, int pageNum = 1)
         {
-            var users = await _userManager.Users.ToListAsync();
+            int pageSize = 5;
+            ViewBag.SelectedUserType = usertype;
+
+            var users = await _userManager.Users
+                .Where(x => x.UserType == usertype || usertype == null)
+                .OrderBy(x => x)
+                .Skip((pageNum - 1) * pageSize)
+                .Take(pageSize)
+                .ToListAsync();
             var userRolesViewModel = new List<UserRolesViewModel>();
             foreach (AppUser user in users)
             {
@@ -39,7 +47,18 @@ namespace FagElGamous.Controllers
                 thisViewModel.Roles = await GetUserRoles(user);
                 userRolesViewModel.Add(thisViewModel);
             }
-            return View(userRolesViewModel);
+            return View(new UserManagerIndexViewModel
+            {
+                Users = userRolesViewModel,
+                PageNumberingInfo = new PageNumberingInfo
+                {
+                    NumItemsPerPage = pageSize,
+                    CurrentPage = pageNum,
+                    //If no user type has been selected, get full count, otherwise, only count the number of selected user type
+                    TotalNumItems = (usertype == null ? _userManager.Users.Count() : _userManager.Users.Where(x => x.UserType == usertype).Count())
+                },
+                UserTypeSelected = usertype
+            });
         }
 
         [HttpGet]

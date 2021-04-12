@@ -110,9 +110,15 @@ namespace FagElGamous
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute("usertype",
+                    "UserManager/UserType/{usertype}",
+                    new { Controller = "UserManager", action = "Index" }
+                    );
+
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+
                 endpoints.MapRazorPages();
             });
         }
