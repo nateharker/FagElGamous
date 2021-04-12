@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace FagElGamous.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    [Authorize(Policy = "deletepolicy")]
     public class UserManagerController : Controller
     {
         private readonly UserManager<AppUser> _userManager;

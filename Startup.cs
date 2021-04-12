@@ -24,7 +24,6 @@ namespace FagElGamous
         {
             Configuration = configuration;
         }
-
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -36,6 +35,10 @@ namespace FagElGamous
             services.AddDbContext<FagElGamousContext>(options =>
                 options.UseSqlServer(
                     Configuration["ConnectionStrings:FagElGamousIdentityConnection"]));
+
+            services.AddDbContext<PolicyRolesDbContext>(options =>
+                options.UseSqlServer(
+                    Configuration["ConnectionStrings:PolicyRolesDbConnection"]));
 
             services.AddAuthentication()
                 .AddGoogle(googleOptions =>
@@ -68,8 +71,18 @@ namespace FagElGamous
                     githubOptions.ClientSecret = Configuration["Authentication:GitHub:SecretID"];
                 });
 
-                services.AddTransient<IEmailSender, EmailSender>();
-                services.Configure<AuthMessageSenderOptions>(Configuration);
+            PolicyRolesDbContext context = services.BuildServiceProvider().GetService<PolicyRolesDbContext>();
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("writepolicy",
+                    builder => builder.RequireRole(Policy.GetWriteRoles(context)));
+                options.AddPolicy("deletepolicy",
+                    builder => builder.RequireRole(Policy.GetDeleteRoles(context)));
+            });
+
+            services.AddTransient<IEmailSender, EmailSender>();
+            services.Configure<AuthMessageSenderOptions>(Configuration);
+
         }
           
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -86,6 +99,7 @@ namespace FagElGamous
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
