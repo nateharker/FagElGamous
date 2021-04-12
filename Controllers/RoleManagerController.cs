@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 namespace FagElGamous.Controllers
 {
     [Authorize(Policy = "deletepolicy")]
+    [Authorize(Roles = "Admin")]
     public class RoleManagerController : Controller
     {
         private PolicyRolesDbContext _policyRolesContext { get; set; }
