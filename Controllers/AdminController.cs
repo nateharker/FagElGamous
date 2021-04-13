@@ -22,7 +22,7 @@ namespace FagElGamous
         // GET: Admin
         public async Task<IActionResult> Index(int pageNum = 1)
         {
-            int pageSize = 10;
+            int pageSize = 100;
             return View(new BurialListViewModel
             {
                 BurialDatas = await _context.BurialData
