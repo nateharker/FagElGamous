@@ -79,6 +79,7 @@ html {
 body {
     /* Margin bottom by footer height */
     margin-bottom: 60px;
+
     font-family: 'Catamaran', sans-serif;
 }
 
@@ -220,7 +221,7 @@ body {
 /* The navbar */
 .topnav {
     overflow: hidden;
-    background: rgba(0,0,0,0.2);
+    background: rgba(0,0,0,0.1);
     width: 100%;
 }
 
@@ -235,10 +236,27 @@ body {
 .fontwhite {
     color: white;
     font-weight: bold;
+    text-shadow: 5px 5px 5px #D9AE94;
 }
 .nav > li {
     display: inline-block;
 }
 li {
     display: inline;
+}
+
+.fontdarker{
+    color: saddlebrown;
+    font-weight: bold;
+}
+.round1 {
+    border: 2px solid #A78065;
+    border-radius: 5px;
+    box-shadow: 5px 10px #765E4D;
+}
+.round {
+    box-shadow: 5px 10px #765E4D;
+}
+.button3 {
+    background-color:#977B65;
 }
