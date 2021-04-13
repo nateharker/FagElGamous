@@ -10,105 +10,23 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Fag el-Gamous</title>
+    <title>@ViewData["Title"] Fag el-Gamous</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
-    <link rel="icon" type="image/x-icon" href="~/img/pyramid1.png" />
-    <link rel="shortcut icon" type="image/x-icon" href="~/img/pyramid1.png" />
     <script src="~/js/site.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300&display=swap" rel="stylesheet" type="text/css">
-</head>
 <body style="color: #997B66;background-color: #F1DCA7;">
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow topnav fontwhite" style="color: #997B66; background-color: #FFCB69;">
-            <div class="container">
-                <a class="navbar-brand fontsize" asp-area="" asp-controller="Home" asp-action="Index">
-                    <img src="~/img/pyramid1.png" height="30" width="30" />
-                    Fag el-Gamous
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <partial name="_LoginPartial" />
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark fontsize" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark fontsize" asp-area="" asp-controller="Home" asp-action="Summary">Summary</a>
-                        </li>
 
-                    </ul>
-                </div>
 
-            </div>
-        </nav>
-    </header>
-    <br /><br />
-    <div class="container">
 
-        <div class="row">
-            <div class="col-2">
-                <vc:user-type />
-            </div>
 
-            <div class="col-10">
-                <h1>User Roles</h1>
-                <table class=" table table-striped table-hover">
-                    <thead>
-                        <tr>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Email</th>
-                            <th>User Type</th>
-                            <th>Organization Name</th>
-                            <th>Roles</th>
-                            <th>Action</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var user in Model.Users)
-                        {
                             <tr>
-                                <td>@user.FirstName</td>
-                                <td>@user.LastName</td>
-                                <td>@user.Email</td>
-                                <td>@user.UserType</td>
-                                <td>@user.OrganizationName</td>
-                                <td>@string.Join(", ", user.Roles.ToList())</td>
-                                <td>
-                                    <a class="btn btn-primary" asp-controller="UserManager" asp-action="Manage" asp-route-userId="@user.UserId">Manage Roles</a>
-                                </td>
-                                <td>
-                                    <a class="btn btn-danger" asp-controller="UserManager" asp-action="DeleteUserConfirm" asp-route-userId="@user.UserId">Delete User</a>
-                                </td>
                             </tr>
-                        }
-                    </tbody>
-                </table>
-                @*tag helper used to dynamically show the correct number of pages and create the buttons for them*@
-                <div class="text-center">
-                    <div page-info="@Model.PageNumberingInfo" page-url-usertype="@Model.UserTypeSelected" page-classes-enabled="true"
-                        page-class="btn" page-class-normal="btn-outline-dark" page-class-selected="btn-secondary" class="btn-group pull-right m-1">
                     </div>
                 </div>
             </div>
-        </div>
-        <br />
-    
-    </div>
+            <br />
 
-    <footer class="border-top footer text-muted text-center">
-        <div class="container">
-            &copy; 2021 - Fag el-Gamous - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
 
-</body>
-</html>
+        <footer class="border-top footer text-muted text-center">

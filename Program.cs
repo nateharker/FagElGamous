@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration.AzureAppConfiguration;
 
 namespace FagElGamous
 {
@@ -45,7 +46,21 @@ namespace FagElGamous
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseStartup<Startup>();
+                    webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
+                     {
+                         var settings = config.Build();
+                         config.AddAzureAppConfiguration(options =>
+                         {
+                             options.Connect(Environment.GetEnvironmentVariable("ConnectionString"))
+                                    .ConfigureRefresh(refresh =>
+                                    {
+                                        refresh.Register("TestApp:Settings:Message", refreshAll: true)
+                                               .SetCacheExpiration(new TimeSpan(0, 0, 60));
+                                    });
+                         });
+                     })
+                    .UseStartup<Startup>();
                 });
+
     }
 }

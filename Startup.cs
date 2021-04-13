@@ -15,6 +15,7 @@ using FagElGamous.Data;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using FagElGamous.Services;
 using FagElGamous.Models;
+using FagElGamous.Controllers;
 
 namespace FagElGamous
 {
@@ -30,6 +31,8 @@ namespace FagElGamous
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.Configure<Settings>(Configuration.GetSection("TestApp:Settings"));
+            services.AddAzureAppConfiguration();
             services.AddRazorPages();
 
             services.AddDbContext<FagElGamousContext>(options =>
@@ -109,6 +112,7 @@ namespace FagElGamous
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+            app.UseAzureAppConfiguration();
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();

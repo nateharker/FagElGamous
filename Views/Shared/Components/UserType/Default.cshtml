@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<string>
 
     <a class="btn btn-block @(ViewBag.SelectedUserType is null ? "btn-secondary" : "btn-outline-dark")"
-       asp-action="Index" asp-controller="UserManager" asp-route-usertype="">Home</a>
+       asp-action="Index" asp-controller="UserManager" asp-route-usertype="">All User Types</a>
 @foreach (string x in Model)
 {
     <a class="btn btn-block @(x == ViewBag.SelectedUserType ? "btn-secondary" : "btn-outline-dark")"

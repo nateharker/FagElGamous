@@ -11,27 +11,18 @@
     <title>@ViewData["Title"] Fag el-Gamous</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
-    <link rel="icon" type="image/x-icon" href="~/img/pyramid1.png" />
-    <link rel="shortcut icon" type="image/x-icon" href="~/img/pyramid1.png" />
     <script src="~/js/site.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@100&display=swap" rel="stylesheet">
 </head>
-<body style="color: #997B66; background-color: #F1DCA7;">
     <header>
 
         <div class="masthead bg-img">
 
             <div class="row h-100 align-items-center">
                 <div class="col-12 text-center">
-                    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow topnav fontwhite color: #997B66; ">
-                        <div class="container">
                            
-                                <a class="navbar-brand fontsize" asp-area="" asp-controller="Home" asp-action="Index">
-                                    <img src="~/img/pyramid1.png" height="30" width="30" />
-                                    Fag el-Gamous
-                                </a>
                                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                                         aria-expanded="false" aria-label="Toggle navigation">
                                     <span class="navbar-toggler-icon"></span>
@@ -41,9 +32,11 @@
                                     <ul class="navbar-nav flex-grow-1">
                                         <li class="nav-item">
                                             <a class="nav-link text-dark fontsize" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                                            <a class="nav-link text-dark fontsize"  style="font-family: Catamaran" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link text-dark fontsize" asp-area="" asp-controller="Home" asp-action="Summary">Summary</a>
+                                            <a class="nav-link text-dark fontsize" style="font-family: Catamaran" " asp-area="" asp-controller="Home" asp-action="Summary">Summary</a>
                                         </li>
 
                                     </ul>

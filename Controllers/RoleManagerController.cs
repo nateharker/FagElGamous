@@ -4,23 +4,26 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration.AzureAppConfiguration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Options;
 
 namespace FagElGamous.Controllers
 {
     [Authorize(Policy = "deletepolicy")]
-    [Authorize(Roles = "Admin")]
     public class RoleManagerController : Controller
     {
         private PolicyRolesDbContext _policyRolesContext { get; set; }
         private readonly RoleManager<IdentityRole> _roleManager;
-        public RoleManagerController(RoleManager<IdentityRole> roleManager, PolicyRolesDbContext context)
+        private readonly Settings _settings;
+        public RoleManagerController(RoleManager<IdentityRole> roleManager, PolicyRolesDbContext context, IOptionsSnapshot<Settings> settings)
         {
             _roleManager = roleManager;
             _policyRolesContext = context;
+            _settings = settings.Value; 
         }
 
         public async Task<IActionResult> Index()
@@ -88,7 +91,7 @@ namespace FagElGamous.Controllers
                 WriteRole wr = new WriteRole { Role = roleName };
                 _policyRolesContext.WriteRoles.Add(wr);
                 _policyRolesContext.SaveChanges();
-                
+                _settings.Message = DateTime.Now.ToString();
                 return RedirectToAction("Index");
             }
             else
@@ -103,6 +106,7 @@ namespace FagElGamous.Controllers
             var role = _policyRolesContext.WriteRoles.FirstOrDefault(r => r.WriteRoleId == roleId);
             _policyRolesContext.WriteRoles.Remove(role);
             _policyRolesContext.SaveChanges();
+            _settings.Message = DateTime.Now.ToString();
             return RedirectToAction("Index");
         }
 
@@ -122,6 +126,7 @@ namespace FagElGamous.Controllers
                 DeleteRole dr = new DeleteRole { Role = roleName };
                 _policyRolesContext.DeleteRoles.Add(dr);
                 _policyRolesContext.SaveChanges();
+                _settings.Message = DateTime.Now.ToString();
                 return RedirectToAction("Index");
             }
             else
@@ -137,6 +142,7 @@ namespace FagElGamous.Controllers
             var role = _policyRolesContext.DeleteRoles.FirstOrDefault(r => r.DeleteRoleId == roleId);
             _policyRolesContext.DeleteRoles.Remove(role);
             _policyRolesContext.SaveChanges();
+            _settings.Message = DateTime.Now.ToString();
             return RedirectToAction("Index");
         }
     }
