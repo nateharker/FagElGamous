@@ -1,0 +1,609 @@
+﻿@model FagElGamous.Models.BurialData
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>BurialData</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="BurialId" />
+            <div class="form-group">
+                <label asp-for="BurialLocNs" class="control-label"></label>
+                <input asp-for="BurialLocNs" class="form-control" />
+                <span asp-validation-for="BurialLocNs" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NsLow" class="control-label"></label>
+                <input asp-for="NsLow" class="form-control" />
+                <span asp-validation-for="NsLow" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NsHigh" class="control-label"></label>
+                <input asp-for="NsHigh" class="form-control" />
+                <span asp-validation-for="NsHigh" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BurialLocEw" class="control-label"></label>
+                <input asp-for="BurialLocEw" class="form-control" />
+                <span asp-validation-for="BurialLocEw" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EwLow" class="control-label"></label>
+                <input asp-for="EwLow" class="form-control" />
+                <span asp-validation-for="EwLow" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EwHigh" class="control-label"></label>
+                <input asp-for="EwHigh" class="form-control" />
+                <span asp-validation-for="EwHigh" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Subplot" class="control-label"></label>
+                <input asp-for="Subplot" class="form-control" />
+                <span asp-validation-for="Subplot" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BurialNum" class="control-label"></label>
+                <input asp-for="BurialNum" class="form-control" />
+                <span asp-validation-for="BurialNum" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AreaHillBurials" class="control-label"></label>
+                <input asp-for="AreaHillBurials" class="form-control" />
+                <span asp-validation-for="AreaHillBurials" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tomb" class="control-label"></label>
+                <input asp-for="Tomb" class="form-control" />
+                <span asp-validation-for="Tomb" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="YearExcav" class="control-label"></label>
+                <input asp-for="YearExcav" class="form-control" />
+                <span asp-validation-for="YearExcav" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MonthExcav" class="control-label"></label>
+                <input asp-for="MonthExcav" class="form-control" />
+                <span asp-validation-for="MonthExcav" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateExcav" class="control-label"></label>
+                <input asp-for="DateExcav" class="form-control" />
+                <span asp-validation-for="DateExcav" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimeExcav" class="control-label"></label>
+                <input asp-for="TimeExcav" class="form-control" />
+                <span asp-validation-for="TimeExcav" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ExcavRecorder" class="control-label"></label>
+                <input asp-for="ExcavRecorder" class="form-control" />
+                <span asp-validation-for="ExcavRecorder" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FieldBook" class="control-label"></label>
+                <input asp-for="FieldBook" class="form-control" />
+                <span asp-validation-for="FieldBook" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FieldBookPg" class="control-label"></label>
+                <input asp-for="FieldBookPg" class="form-control" />
+                <span asp-validation-for="FieldBookPg" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Goods" class="control-label"></label>
+                <input asp-for="Goods" class="form-control" />
+                <span asp-validation-for="Goods" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ArtifactFound" class="control-label"></label>
+                <input asp-for="ArtifactFound" class="form-control" />
+                <span asp-validation-for="ArtifactFound" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ArtifactDescription" class="control-label"></label>
+                <input asp-for="ArtifactDescription" class="form-control" />
+                <span asp-validation-for="ArtifactDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HairPresent" class="control-label"></label>
+                <input asp-for="HairPresent" class="form-control" />
+                <span asp-validation-for="HairPresent" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HairColorCode" class="control-label"></label>
+                <input asp-for="HairColorCode" class="form-control" />
+                <span asp-validation-for="HairColorCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BurialHairColor" class="control-label"></label>
+                <input asp-for="BurialHairColor" class="form-control" />
+                <span asp-validation-for="BurialHairColor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FaceBundle" class="control-label"></label>
+                <input asp-for="FaceBundle" class="form-control" />
+                <span asp-validation-for="FaceBundle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BurialSampleTaken" class="control-label"></label>
+                <input asp-for="BurialSampleTaken" class="form-control" />
+                <span asp-validation-for="BurialSampleTaken" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HairTaken" class="control-label"></label>
+                <input asp-for="HairTaken" class="form-control" />
+                <span asp-validation-for="HairTaken" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoftTissueTaken" class="control-label"></label>
+                <input asp-for="SoftTissueTaken" class="form-control" />
+                <span asp-validation-for="SoftTissueTaken" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BoneTaken" class="control-label"></label>
+                <input asp-for="BoneTaken" class="form-control" />
+                <span asp-validation-for="BoneTaken" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ToothTaken" class="control-label"></label>
+                <input asp-for="ToothTaken" class="form-control" />
+                <span asp-validation-for="ToothTaken" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TextileTaken" class="control-label"></label>
+                <input asp-for="TextileTaken" class="form-control" />
+                <span asp-validation-for="TextileTaken" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DescriptionOfTaken" class="control-label"></label>
+                <input asp-for="DescriptionOfTaken" class="form-control" />
+                <span asp-validation-for="DescriptionOfTaken" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EstimateLivingStature" class="control-label"></label>
+                <input asp-for="EstimateLivingStature" class="form-control" />
+                <span asp-validation-for="EstimateLivingStature" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LengthOfRemains" class="control-label"></label>
+                <input asp-for="LengthOfRemains" class="form-control" />
+                <span asp-validation-for="LengthOfRemains" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BurialLength" class="control-label"></label>
+                <input asp-for="BurialLength" class="form-control" />
+                <span asp-validation-for="BurialLength" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BurialDepth" class="control-label"></label>
+                <input asp-for="BurialDepth" class="form-control" />
+                <span asp-validation-for="BurialDepth" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BurialSituationNotes" class="control-label"></label>
+                <input asp-for="BurialSituationNotes" class="form-control" />
+                <span asp-validation-for="BurialSituationNotes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WestToHead" class="control-label"></label>
+                <input asp-for="WestToHead" class="form-control" />
+                <span asp-validation-for="WestToHead" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WestToFeet" class="control-label"></label>
+                <input asp-for="WestToFeet" class="form-control" />
+                <span asp-validation-for="WestToFeet" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SouthToHead" class="control-label"></label>
+                <input asp-for="SouthToHead" class="form-control" />
+                <span asp-validation-for="SouthToHead" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SouthToFeet" class="control-label"></label>
+                <input asp-for="SouthToFeet" class="form-control" />
+                <span asp-validation-for="SouthToFeet" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SampleNumber" class="control-label"></label>
+                <input asp-for="SampleNumber" class="form-control" />
+                <span asp-validation-for="SampleNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PreservationIndex" class="control-label"></label>
+                <input asp-for="PreservationIndex" class="form-control" />
+                <span asp-validation-for="PreservationIndex" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BurialPreservation" class="control-label"></label>
+                <input asp-for="BurialPreservation" class="form-control" />
+                <span asp-validation-for="BurialPreservation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BurialMaterials" class="control-label"></label>
+                <input asp-for="BurialMaterials" class="form-control" />
+                <span asp-validation-for="BurialMaterials" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BurialWrapping" class="control-label"></label>
+                <input asp-for="BurialWrapping" class="form-control" />
+                <span asp-validation-for="BurialWrapping" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BurialDirection" class="control-label"></label>
+                <input asp-for="BurialDirection" class="form-control" />
+                <span asp-validation-for="BurialDirection" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HeadDirection" class="control-label"></label>
+                <input asp-for="HeadDirection" class="form-control" />
+                <span asp-validation-for="HeadDirection" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClusterYn" class="control-label"></label>
+                <input asp-for="ClusterYn" class="form-control" />
+                <span asp-validation-for="ClusterYn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClusterNum" class="control-label"></label>
+                <input asp-for="ClusterNum" class="form-control" />
+                <span asp-validation-for="ClusterNum" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sex" class="control-label"></label>
+                <input asp-for="Sex" class="form-control" />
+                <span asp-validation-for="Sex" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SexMethod" class="control-label"></label>
+                <input asp-for="SexMethod" class="form-control" />
+                <span asp-validation-for="SexMethod" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GenderGe" class="control-label"></label>
+                <input asp-for="GenderGe" class="form-control" />
+                <span asp-validation-for="GenderGe" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GeFunctionTotal" class="control-label"></label>
+                <input asp-for="GeFunctionTotal" class="form-control" />
+                <span asp-validation-for="GeFunctionTotal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AgeAtDeath" class="control-label"></label>
+                <input asp-for="AgeAtDeath" class="form-control" />
+                <span asp-validation-for="AgeAtDeath" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AgeCode" class="control-label"></label>
+                <input asp-for="AgeCode" class="form-control" />
+                <span asp-validation-for="AgeCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AgeMethod" class="control-label"></label>
+                <input asp-for="AgeMethod" class="form-control" />
+                <span asp-validation-for="AgeMethod" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BurialAdultChild" class="control-label"></label>
+                <input asp-for="BurialAdultChild" class="form-control" />
+                <span asp-validation-for="BurialAdultChild" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ToBeCo0firmed" class="control-label"></label>
+                <input asp-for="ToBeCo0firmed" class="form-control" />
+                <span asp-validation-for="ToBeCo0firmed" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="B1uSample" class="control-label"></label>
+                <input asp-for="B1uSample" class="form-control" />
+                <span asp-validation-for="B1uSample" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BodyAnalysis" class="control-label"></label>
+                <input asp-for="BodyAnalysis" class="form-control" />
+                <span asp-validation-for="BodyAnalysis" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="YearOnSkull" class="control-label"></label>
+                <input asp-for="YearOnSkull" class="form-control" />
+                <span asp-validation-for="YearOnSkull" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MonthOnSkull" class="control-label"></label>
+                <input asp-for="MonthOnSkull" class="form-control" />
+                <span asp-validation-for="MonthOnSkull" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateOnSkull" class="control-label"></label>
+                <input asp-for="DateOnSkull" class="form-control" />
+                <span asp-validation-for="DateOnSkull" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SkullAtMagazi0e" class="control-label"></label>
+                <input asp-for="SkullAtMagazi0e" class="form-control" />
+                <span asp-validation-for="SkullAtMagazi0e" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Postcra0iaAtMagazi0e" class="control-label"></label>
+                <input asp-for="Postcra0iaAtMagazi0e" class="form-control" />
+                <span asp-validation-for="Postcra0iaAtMagazi0e" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SexSkull2018" class="control-label"></label>
+                <input asp-for="SexSkull2018" class="form-control" />
+                <span asp-validation-for="SexSkull2018" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AgeSkull2018" class="control-label"></label>
+                <input asp-for="AgeSkull2018" class="form-control" />
+                <span asp-validation-for="AgeSkull2018" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ArcGisRefNum" class="control-label"></label>
+                <input asp-for="ArcGisRefNum" class="form-control" />
+                <span asp-validation-for="ArcGisRefNum" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BasilarSuture" class="control-label"></label>
+                <input asp-for="BasilarSuture" class="form-control" />
+                <span asp-validation-for="BasilarSuture" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VentralArc" class="control-label"></label>
+                <input asp-for="VentralArc" class="form-control" />
+                <span asp-validation-for="VentralArc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SubpubicAngle" class="control-label"></label>
+                <input asp-for="SubpubicAngle" class="form-control" />
+                <span asp-validation-for="SubpubicAngle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SciaticNotch" class="control-label"></label>
+                <input asp-for="SciaticNotch" class="form-control" />
+                <span asp-validation-for="SciaticNotch" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PubicBone" class="control-label"></label>
+                <input asp-for="PubicBone" class="form-control" />
+                <span asp-validation-for="PubicBone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PreaurSulcus" class="control-label"></label>
+                <input asp-for="PreaurSulcus" class="form-control" />
+                <span asp-validation-for="PreaurSulcus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MedialIpRamus" class="control-label"></label>
+                <input asp-for="MedialIpRamus" class="form-control" />
+                <span asp-validation-for="MedialIpRamus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DorsalPitting" class="control-label"></label>
+                <input asp-for="DorsalPitting" class="form-control" />
+                <span asp-validation-for="DorsalPitting" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ForemanMagnum" class="control-label"></label>
+                <input asp-for="ForemanMagnum" class="form-control" />
+                <span asp-validation-for="ForemanMagnum" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FemurHead" class="control-label"></label>
+                <input asp-for="FemurHead" class="form-control" />
+                <span asp-validation-for="FemurHead" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HumerusHead" class="control-label"></label>
+                <input asp-for="HumerusHead" class="form-control" />
+                <span asp-validation-for="HumerusHead" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Osteophytosis" class="control-label"></label>
+                <input asp-for="Osteophytosis" class="form-control" />
+                <span asp-validation-for="Osteophytosis" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PubicSymphysis" class="control-label"></label>
+                <input asp-for="PubicSymphysis" class="form-control" />
+                <span asp-validation-for="PubicSymphysis" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FemurLength" class="control-label"></label>
+                <input asp-for="FemurLength" class="form-control" />
+                <span asp-validation-for="FemurLength" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HumerusLength" class="control-label"></label>
+                <input asp-for="HumerusLength" class="form-control" />
+                <span asp-validation-for="HumerusLength" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TibiaLength" class="control-label"></label>
+                <input asp-for="TibiaLength" class="form-control" />
+                <span asp-validation-for="TibiaLength" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Robust" class="control-label"></label>
+                <input asp-for="Robust" class="form-control" />
+                <span asp-validation-for="Robust" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SupraorbitalRidges" class="control-label"></label>
+                <input asp-for="SupraorbitalRidges" class="form-control" />
+                <span asp-validation-for="SupraorbitalRidges" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OrbitEdge" class="control-label"></label>
+                <input asp-for="OrbitEdge" class="form-control" />
+                <span asp-validation-for="OrbitEdge" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ParietalBossing" class="control-label"></label>
+                <input asp-for="ParietalBossing" class="form-control" />
+                <span asp-validation-for="ParietalBossing" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Gonian" class="control-label"></label>
+                <input asp-for="Gonian" class="form-control" />
+                <span asp-validation-for="Gonian" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NuchalCrest" class="control-label"></label>
+                <input asp-for="NuchalCrest" class="form-control" />
+                <span asp-validation-for="NuchalCrest" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ZygomaticCrest" class="control-label"></label>
+                <input asp-for="ZygomaticCrest" class="form-control" />
+                <span asp-validation-for="ZygomaticCrest" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CranialSuture" class="control-label"></label>
+                <input asp-for="CranialSuture" class="form-control" />
+                <span asp-validation-for="CranialSuture" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MaximumCranialLength" class="control-label"></label>
+                <input asp-for="MaximumCranialLength" class="form-control" />
+                <span asp-validation-for="MaximumCranialLength" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MaximumCranialBreadth" class="control-label"></label>
+                <input asp-for="MaximumCranialBreadth" class="form-control" />
+                <span asp-validation-for="MaximumCranialBreadth" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BasionBregmaHeight" class="control-label"></label>
+                <input asp-for="BasionBregmaHeight" class="form-control" />
+                <span asp-validation-for="BasionBregmaHeight" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BasionNasion" class="control-label"></label>
+                <input asp-for="BasionNasion" class="form-control" />
+                <span asp-validation-for="BasionNasion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BasionProsthionLength" class="control-label"></label>
+                <input asp-for="BasionProsthionLength" class="form-control" />
+                <span asp-validation-for="BasionProsthionLength" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BizygomaticDiameter" class="control-label"></label>
+                <input asp-for="BizygomaticDiameter" class="form-control" />
+                <span asp-validation-for="BizygomaticDiameter" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NasionProsthion" class="control-label"></label>
+                <input asp-for="NasionProsthion" class="form-control" />
+                <span asp-validation-for="NasionProsthion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MaximumNasalBreadth" class="control-label"></label>
+                <input asp-for="MaximumNasalBreadth" class="form-control" />
+                <span asp-validation-for="MaximumNasalBreadth" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="InterorbitalBreadth" class="control-label"></label>
+                <input asp-for="InterorbitalBreadth" class="form-control" />
+                <span asp-validation-for="InterorbitalBreadth" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SkullTrauma" class="control-label"></label>
+                <input asp-for="SkullTrauma" class="form-control" />
+                <span asp-validation-for="SkullTrauma" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Postcra0iaTrauma" class="control-label"></label>
+                <input asp-for="Postcra0iaTrauma" class="form-control" />
+                <span asp-validation-for="Postcra0iaTrauma" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CribraOrbitala" class="control-label"></label>
+                <input asp-for="CribraOrbitala" class="form-control" />
+                <span asp-validation-for="CribraOrbitala" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PoroticHyperostosis" class="control-label"></label>
+                <input asp-for="PoroticHyperostosis" class="form-control" />
+                <span asp-validation-for="PoroticHyperostosis" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PoroticHyperostosisLocations" class="control-label"></label>
+                <input asp-for="PoroticHyperostosisLocations" class="form-control" />
+                <span asp-validation-for="PoroticHyperostosisLocations" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MetopicSuture" class="control-label"></label>
+                <input asp-for="MetopicSuture" class="form-control" />
+                <span asp-validation-for="MetopicSuture" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ButtonOsteoma" class="control-label"></label>
+                <input asp-for="ButtonOsteoma" class="form-control" />
+                <span asp-validation-for="ButtonOsteoma" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OsteologyUnknownComment" class="control-label"></label>
+                <input asp-for="OsteologyUnknownComment" class="form-control" />
+                <span asp-validation-for="OsteologyUnknownComment" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TmjOa" class="control-label"></label>
+                <input asp-for="TmjOa" class="form-control" />
+                <span asp-validation-for="TmjOa" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LinearHypolasiaEnamel" class="control-label"></label>
+                <input asp-for="LinearHypolasiaEnamel" class="form-control" />
+                <span asp-validation-for="LinearHypolasiaEnamel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ToothAttrition" class="control-label"></label>
+                <input asp-for="ToothAttrition" class="form-control" />
+                <span asp-validation-for="ToothAttrition" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ToothEruption" class="control-label"></label>
+                <input asp-for="ToothEruption" class="form-control" />
+                <span asp-validation-for="ToothEruption" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PathologyAnomalies" class="control-label"></label>
+                <input asp-for="PathologyAnomalies" class="form-control" />
+                <span asp-validation-for="PathologyAnomalies" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EpiphysealUnion" class="control-label"></label>
+                <input asp-for="EpiphysealUnion" class="form-control" />
+                <span asp-validation-for="EpiphysealUnion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OsteologyNotes" class="control-label"></label>
+                <input asp-for="OsteologyNotes" class="form-control" />
+                <span asp-validation-for="OsteologyNotes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
