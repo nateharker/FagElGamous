@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using FagElGamous.Models;
+using FagElGamous.Models.ViewModels;
 
 namespace FagElGamous
 {
@@ -19,9 +20,23 @@ namespace FagElGamous
         }
 
         // GET: Admin
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int pageNum = 1)
         {
-            return View(await _context.BurialData.ToListAsync());
+            int pageSize = 10;
+            return View(new BurialListViewModel
+            {
+                BurialDatas = await _context.BurialData
+                .Skip((pageNum - 1) * pageSize)
+                .Take(pageSize)
+                .ToListAsync(),
+
+                PageNumberingInfo = new PageNumberingInfo
+                {
+                    NumItemsPerPage = pageSize,
+                    CurrentPage = pageNum,
+                    TotalNumItems = (_context.BurialData.Count())
+                }
+            });
         }
 
         // GET: Admin/Details/5
