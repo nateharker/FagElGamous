@@ -17,13 +17,14 @@ namespace FagElGamous.Models
             BurialRackLink = new HashSet<BurialRackLink>();
             C14data = new HashSet<C14data>();
         }
-        private string burialKey;
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public string BurialId
-        {
-            get { return burialKey; }
-            set { burialKey = (BurialLocNs + NsLow.ToString() + NsHigh.ToString() + BurialLocEw + EwLow.ToString() + EwHigh.ToString() + Subplot + BurialNum.ToString()); }
-        }
+        //private string burialKey;
+        //  [Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Key]
+        public string BurialId { get; set; }
+        //{
+        //    //get { return burialKey; }
+        //    //set { burialKey = (BurialLocNs + NsLow.ToString() + NsHigh.ToString() + BurialLocEw + EwLow.ToString() + EwHigh.ToString() + Subplot + BurialNum.ToString()); }
+        //}
         public string BurialLocNs { get; set; }
         public double? NsLow { get; set; }
         public double? NsHigh { get; set; }

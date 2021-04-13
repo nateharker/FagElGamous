@@ -1,4 +1,9 @@
-﻿@model UserManagerIndexViewModel
+﻿@inject SignInManager<AppUser> SignInManager
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<AppUser> UserManager
+@inject PolicyRolesDbContext context
+
+@model UserManagerIndexViewModel
 @{
     ViewData["Title"] = "Index";
     Layout = null;
@@ -19,101 +24,101 @@
     <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300&display=swap" rel="stylesheet" type="text/css">
 </head>
 <body style="color: #997B66;background-color: #F1DCA7;">
-    
-        <header>
-            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow topnav fontwhite" style="color: #997B66; background-color: #FFCB69;">
-                <div class="container-fluid">
-                    <button class="btn btn-link" onclick="location.href='@Url.Action("Index", "Home")'">
-                        <img src="~/img/bug.png" height="30" width="30" class="mr-2" /><img src="~/img/banner.png" height="30" />
-                    </button>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                        <partial name="_LoginPartial" />
-                        <ul class="navbar-nav flex-grow-1">
+
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow topnav fontwhite" style="color: #997B66; background-color: #FFCB69;">
+            <div class="container-fluid">
+                <button class="btn btn-link" onclick="location.href='@Url.Action("Index", "Home")'">
+                    <img src="~/img/bug.png" height="30" width="30" class="mr-2" /><img src="~/img/banner.png" height="30" />
+                </button>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <partial name="_LoginPartial" />
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark fontsize" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        @if (Policy.IsInDeleteRole(UserManager.GetRolesAsync(UserManager.GetUserAsync(User).Result).Result, context))
+                        {
                             <li class="nav-item">
-                                <a class="nav-link text-dark fontsize" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                                <a class="nav-link text-dark fontsize" asp-area="" asp-controller="Admin" asp-action="Index">Burial Records</a>
                             </li>
-                            @if (Policy.IsInDeleteRole(UserManager.GetRolesAsync(UserManager.GetUserAsync(User).Result).Result, context))
-                            {
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark fontsize" asp-area="" asp-controller="Admin" asp-action="Index">Burial Records</a>
-                                </li>
-                            }
-                            @if else (Policy.IsInWriteRole(UserManager.GetRolesAsync(UserManager.GetUserAsync(User).Result).Result, context))
-                            {
-                            < li class="nav-item">
-                            <a class="nav-link text-dark fontsize" asp-area="" asp-controller="Researcher" asp-action="Index">Burial Records</a>
+                        }
+                        else if (Policy.IsInWriteRole(UserManager.GetRolesAsync(UserManager.GetUserAsync(User).Result).Result, context))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark fontsize" asp-area="" asp-controller="Researcher" asp-action="Index">Burial Records</a>
                             </li>
-                            }
-                            @else
-                            {
+                        }
+                        else
+                        {
                             <li class="nav-item">
                                 <a class="nav-link text-dark fontsize" asp-area="" asp-controller="Public" asp-action="Index">Burial Records</a>
                             </li>
-                            }
+                        }
 
-                        </ul>
-                    </div>
-
-                </div>
-            </nav>
-        </header>
-        <br /><br />
-        <div class="container">
-
-            <div class="row">
-                <div class="col-2">
-                    <vc:user-type />
+                    </ul>
                 </div>
 
-                <div class="col-10">
-                    <h1>User Roles</h1>
-                    <table class=" table table-striped table-hover">
-                        <thead>
+            </div>
+        </nav>
+    </header>
+    <br /><br />
+    <div class="container">
+
+        <div class="row">
+            <div class="col-2">
+                <vc:user-type />
+            </div>
+
+            <div class="col-10">
+                <h1>User Roles</h1>
+                <table class=" table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Email</th>
+                            <th>User Type</th>
+                            <th>Organization Name</th>
+                            <th>Roles</th>
+                            <th>Action</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var user in Model.Users)
+                        {
                             <tr>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>Email</th>
-                                <th>User Type</th>
-                                <th>Organization Name</th>
-                                <th>Roles</th>
-                                <th>Action</th>
-                                <th></th>
+                                <td>@user.FirstName</td>
+                                <td>@user.LastName</td>
+                                <td>@user.Email</td>
+                                <td>@user.UserType</td>
+                                <td>@user.OrganizationName</td>
+                                <td>@string.Join(", ", user.Roles.ToList())</td>
+                                <td>
+                                    <a class="btn btn-primary" asp-controller="UserManager" asp-action="Manage" asp-route-userId="@user.UserId">Manage Roles</a>
+                                </td>
+                                <td>
+                                    <a class="btn btn-danger" asp-controller="UserManager" asp-action="DeleteUserConfirm" asp-route-userId="@user.UserId">Delete User</a>
+                                </td>
                             </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var user in Model.Users)
-                            {
-                                <tr>
-                                    <td>@user.FirstName</td>
-                                    <td>@user.LastName</td>
-                                    <td>@user.Email</td>
-                                    <td>@user.UserType</td>
-                                    <td>@user.OrganizationName</td>
-                                    <td>@string.Join(", ", user.Roles.ToList())</td>
-                                    <td>
-                                        <a class="btn btn-primary" asp-controller="UserManager" asp-action="Manage" asp-route-userId="@user.UserId">Manage Roles</a>
-                                    </td>
-                                    <td>
-                                        <a class="btn btn-danger" asp-controller="UserManager" asp-action="DeleteUserConfirm" asp-route-userId="@user.UserId">Delete User</a>
-                                    </td>
-                                </tr>
-                            }
-                        </tbody>
-                    </table>
-                    @*tag helper used to dynamically show the correct number of pages and create the buttons for them*@
-                    <div class="text-center">
-                        <div page-info="@Model.PageNumberingInfo" page-url-usertype="@Model.UserTypeSelected" page-classes-enabled="true"
-                             page-class="btn" page-class-normal="btn-outline-dark" page-class-selected="btn-secondary" class="btn-group pull-right m-1">
-                        </div>
+                        }
+                    </tbody>
+                </table>
+                @*tag helper used to dynamically show the correct number of pages and create the buttons for them*@
+                <div class="text-center">
+                    <div page-info="@Model.PageNumberingInfo" page-url-usertype="@Model.UserTypeSelected" page-classes-enabled="true"
+                         page-class="btn" page-class-normal="btn-outline-dark" page-class-selected="btn-secondary" class="btn-group pull-right m-1">
                     </div>
                 </div>
             </div>
-        <br />
         </div>
+        <br />
+    </div>
 
     <footer class="border-top footer text-muted text-center">
         <div class="container">

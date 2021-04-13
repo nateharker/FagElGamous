@@ -1,7 +1,10 @@
 ﻿
 @{ Layout = null; }
 
-
+@inject SignInManager<AppUser> SignInManager
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<AppUser> UserManager
+@inject PolicyRolesDbContext context 
 
 <!DOCTYPE html>
 <html lang="en">
@@ -47,13 +50,13 @@
                                         <a class="nav-link text-dark fontsize" asp-area="" asp-controller="Admin" asp-action="Index">Burial Records</a>
                                     </li>
                                 }
-                                @if else (Policy.IsInWriteRole(UserManager.GetRolesAsync(UserManager.GetUserAsync(User).Result).Result, context))
+                                else if (Policy.IsInWriteRole(UserManager.GetRolesAsync(UserManager.GetUserAsync(User).Result).Result, context))
                                 {
                                 <li class="nav-item">
                                     <a class="nav-link text-dark fontsize" asp-area="" asp-controller="Researcher" asp-action="Index">Burial Records</a>
                                 </li>
                                 }
-                                @else
+                                else
                                 {
                                 <li class="nav-item">
                                     <a class="nav-link text-dark fontsize" asp-area="" asp-controller="Public" asp-action="Index">Burial Records</a>
@@ -100,11 +103,11 @@
                 {
                     <a class="text-center" asp-area="" asp-controller="Admin" asp-action="Index">Click here to access our database</a>
                 }
-                @if else(Policy.IsInWriteRole(UserManager.GetRolesAsync(UserManager.GetUserAsync(User).Result).Result, context))
+                else if(Policy.IsInWriteRole(UserManager.GetRolesAsync(UserManager.GetUserAsync(User).Result).Result, context))
                 {
                     <a class="text-center" asp-area="" asp-controller="Researcher" asp-action="Index">Click here to access our database</a>
                 }
-                @else
+                else
                 {
                     <a class="text-center" asp-area="" asp-controller="Public" asp-action="Index">Click here to access our database</a>
                 }
