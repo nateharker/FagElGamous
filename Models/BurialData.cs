@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -24,21 +24,13 @@ namespace FagElGamous.Models
             get { return burialKey; }
             set { burialKey = (BurialLocNs + NsLow.ToString() + NsHigh.ToString() + BurialLocEw + EwLow.ToString() + EwHigh.ToString() + Subplot + BurialNum.ToString()); }
         }
-        [Required]
         public string BurialLocNs { get; set; }
-        [Required]
         public double? NsLow { get; set; }
-        [Required]
         public double? NsHigh { get; set; }
-        [Required]
         public string BurialLocEw { get; set; }
-        [Required]
         public double? EwLow { get; set; }
-        [Required]
         public double? EwHigh { get; set; }
-        [Required]
         public string Subplot { get; set; }
-        [Required]
         public double? BurialNum { get; set; }
         public string AreaHillBurials { get; set; }
         public string Tomb { get; set; }
@@ -49,7 +41,6 @@ namespace FagElGamous.Models
         public string ExcavRecorder { get; set; }
         public string FieldBook { get; set; }
         public string FieldBookPg { get; set; }
-        [Required]
         public string Goods { get; set; }
         public string ArtifactFound { get; set; }
         public string ArtifactDescription { get; set; }
@@ -66,18 +57,12 @@ namespace FagElGamous.Models
         public string DescriptionOfTaken { get; set; }
         public string EstimateLivingStature { get; set; }
         public string LengthOfRemains { get; set; }
-        [Required]
         public double? BurialLength { get; set; }
-        [Required]
         public double? BurialDepth { get; set; }
         public string BurialSituationNotes { get; set; }
-        [Required]
         public double? WestToHead { get; set; }
-        [Required]
         public double? WestToFeet { get; set; }
-        [Required]
         public double? SouthToHead { get; set; }
-        [Required]
         public double? SouthToFeet { get; set; }
         public string SampleNumber { get; set; }
         public string PreservationIndex { get; set; }
