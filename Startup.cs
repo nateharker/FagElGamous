@@ -75,23 +75,23 @@ namespace FagElGamous
                     githubOptions.ClientSecret = Configuration["Authentication:GitHub:SecretID"];
                 });
 
-            PolicyRolesDbContext context = services.BuildServiceProvider().GetService<PolicyRolesDbContext>();
-            if (context.WriteRoles.Count() > 0)
-            {
-                services.AddAuthorization(options =>
-                {
-                    options.AddPolicy("writepolicy",
-                        builder => builder.RequireRole(Policy.GetWriteRoles(context)));
-                });
-            }
-            if (context.DeleteRoles.Count() > 0)
-            {
-                services.AddAuthorization(options =>
-                {
-                    options.AddPolicy("deletepolicy",
-                        builder => builder.RequireRole(Policy.GetDeleteRoles(context)));
-                });
-            }
+            //PolicyRolesDbContext context = services.BuildServiceProvider().GetService<PolicyRolesDbContext>();
+            //if (context.WriteRoles.Count() > 0)
+            //{
+            //    services.AddAuthorization(options =>
+            //    {
+            //        options.AddPolicy("writepolicy",
+            //            builder => builder.RequireRole(Policy.GetWriteRoles(context)));
+            //    });
+            //}
+            //if (context.DeleteRoles.Count() > 0)
+            //{
+            //    services.AddAuthorization(options =>
+            //    {
+            //        options.AddPolicy("deletepolicy",
+            //            builder => builder.RequireRole(Policy.GetDeleteRoles(context)));
+            //    });
+            //}
 
             services.AddTransient<IEmailSender, EmailSender>();
             services.Configure<AuthMessageSenderOptions>(Configuration);

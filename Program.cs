@@ -51,7 +51,7 @@ namespace FagElGamous
                          var settings = config.Build();
                          config.AddAzureAppConfiguration(options =>
                          {
-                             options.Connect(Environment.GetEnvironmentVariable("ConnectionString"))
+                             options.Connect(settings["ConnectionStrings:AppConfig"])
                                     .ConfigureRefresh(refresh =>
                                     {
                                         refresh.Register("TestApp:Settings:Message", refreshAll: true)
