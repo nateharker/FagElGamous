@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 // Code scaffolded by EF Core assumes nullable reference types (NRTs) are not used or disabled.
 // If you have enabled NRTs for your project, then un-comment the following line:
@@ -15,15 +17,28 @@ namespace FagElGamous.Models
             BurialRackLink = new HashSet<BurialRackLink>();
             C14data = new HashSet<C14data>();
         }
-
-        public string BurialId { get; set; }
+        private string burialKey;
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public string BurialId
+        {
+            get { return burialKey; }
+            set { burialKey = (BurialLocNs + NsLow.ToString() + NsHigh.ToString() + BurialLocEw + EwLow.ToString() + EwHigh.ToString() + Subplot + BurialNum.ToString()); }
+        }
+        [Required]
         public string BurialLocNs { get; set; }
+        [Required]
         public double? NsLow { get; set; }
+        [Required]
         public double? NsHigh { get; set; }
+        [Required]
         public string BurialLocEw { get; set; }
+        [Required]
         public double? EwLow { get; set; }
+        [Required]
         public double? EwHigh { get; set; }
+        [Required]
         public string Subplot { get; set; }
+        [Required]
         public double? BurialNum { get; set; }
         public string AreaHillBurials { get; set; }
         public string Tomb { get; set; }
@@ -34,6 +49,7 @@ namespace FagElGamous.Models
         public string ExcavRecorder { get; set; }
         public string FieldBook { get; set; }
         public string FieldBookPg { get; set; }
+        [Required]
         public string Goods { get; set; }
         public string ArtifactFound { get; set; }
         public string ArtifactDescription { get; set; }
@@ -50,12 +66,18 @@ namespace FagElGamous.Models
         public string DescriptionOfTaken { get; set; }
         public string EstimateLivingStature { get; set; }
         public string LengthOfRemains { get; set; }
+        [Required]
         public double? BurialLength { get; set; }
+        [Required]
         public double? BurialDepth { get; set; }
         public string BurialSituationNotes { get; set; }
+        [Required]
         public double? WestToHead { get; set; }
+        [Required]
         public double? WestToFeet { get; set; }
+        [Required]
         public double? SouthToHead { get; set; }
+        [Required]
         public double? SouthToFeet { get; set; }
         public string SampleNumber { get; set; }
         public string PreservationIndex { get; set; }
