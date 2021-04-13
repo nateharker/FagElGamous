@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace FagElGamous.Migrations.FagElGamous
 {
-    public partial class Update : Migration
+    public partial class Start : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

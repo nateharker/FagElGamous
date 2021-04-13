@@ -2,7 +2,7 @@
 
 namespace FagElGamous.Migrations
 {
-    public partial class Initial : Migration
+    public partial class Start : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -12,7 +12,7 @@ namespace FagElGamous.Migrations
                 {
                     DeleteRoleId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Role = table.Column<string>(nullable: true)
+                    Role = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -25,7 +25,7 @@ namespace FagElGamous.Migrations
                 {
                     WriteRoleId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Role = table.Column<string>(nullable: true)
+                    Role = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {

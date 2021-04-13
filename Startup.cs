@@ -33,12 +33,13 @@ namespace FagElGamous
             services.AddRazorPages();
 
             services.AddDbContext<FagElGamousContext>(options =>
-                options.UseSqlServer(
-                    Configuration["ConnectionStrings:FagElGamousIdentityConnection"]));
+                options.UseSqlServer(Configuration["ConnectionStrings:FagElGamousIdentityConnection"]));
 
             services.AddDbContext<PolicyRolesDbContext>(options =>
-                options.UseSqlServer(
-                    Configuration["ConnectionStrings:PolicyRolesDbConnection"]));
+                options.UseSqlServer(Configuration["ConnectionStrings:PolicyRolesDbConnection"]));
+
+            services.AddDbContext<BYUExcavationDbContext>(options =>
+                options.UseSqlServer(Configuration["ConnectionStrings:BYUExcavationDbConnection"]));
 
             services.AddAuthentication()
                 .AddGoogle(googleOptions =>
@@ -72,7 +73,7 @@ namespace FagElGamous
                 });
 
             PolicyRolesDbContext context = services.BuildServiceProvider().GetService<PolicyRolesDbContext>();
-            if(context.WriteRoles.Count() > 0)
+            if (context.WriteRoles.Count() > 0)
             {
                 services.AddAuthorization(options =>
                 {
@@ -80,7 +81,7 @@ namespace FagElGamous
                         builder => builder.RequireRole(Policy.GetWriteRoles(context)));
                 });
             }
-            if(context.DeleteRoles.Count() > 0)
+            if (context.DeleteRoles.Count() > 0)
             {
                 services.AddAuthorization(options =>
                 {

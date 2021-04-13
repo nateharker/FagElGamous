@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FagElGamous.Migrations
 {
     [DbContext(typeof(PolicyRolesDbContext))]
-    [Migration("20210412053149_Update")]
-    partial class Update
+    [Migration("20210413064609_Start")]
+    partial class Start
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

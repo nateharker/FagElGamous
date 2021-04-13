@@ -17,8 +17,7 @@ namespace FagElGamous.Areas.Identity
         {
             builder.ConfigureServices((context, services) => {
                 services.AddDbContext<FagElGamousContext>(options =>
-                    options.UseSqlServer(
-                        context.Configuration.GetConnectionString("FagElGamousIdentityConnection")));
+                    options.UseSqlServer(context.Configuration.GetConnectionString("FagElGamousIdentityConnection")));
 
                 services.AddIdentity<AppUser, IdentityRole>(options =>
                     {
