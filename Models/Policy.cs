@@ -61,5 +61,31 @@ namespace FagElGamous.Models
             }
             return inList;
         }
+
+        public static string GetWriteString(PolicyRolesDbContext context)
+        {
+            var contextRoles = context.WriteRoles;
+            string writeRoles = "";
+            foreach (var role in contextRoles)
+            {
+                writeRoles += role;
+                writeRoles += ",";
+            }
+            writeRoles = writeRoles.Remove(writeRoles.Length - 1);
+            return writeRoles;
+        }
+
+        public static string GetDeleteString(PolicyRolesDbContext context)
+        {
+            var contextRoles = context.DeleteRoles;
+            string deleteRoles = "";
+            foreach (var role in contextRoles)
+            {
+                deleteRoles += role;
+                deleteRoles += ",";
+            }
+            deleteRoles = deleteRoles.Remove(deleteRoles.Length - 1);
+            return deleteRoles;
+        }
     }
 }

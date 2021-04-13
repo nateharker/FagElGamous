@@ -75,23 +75,43 @@ namespace FagElGamous
                     githubOptions.ClientSecret = Configuration["Authentication:GitHub:SecretID"];
                 });
 
-            //PolicyRolesDbContext context = services.BuildServiceProvider().GetService<PolicyRolesDbContext>();
-            //if (context.WriteRoles.Count() > 0)
-            //{
-            //    services.AddAuthorization(options =>
-            //    {
-            //        options.AddPolicy("writepolicy",
-            //            builder => builder.RequireRole(Policy.GetWriteRoles(context)));
-            //    });
-            //}
-            //if (context.DeleteRoles.Count() > 0)
-            //{
-            //    services.AddAuthorization(options =>
-            //    {
-            //        options.AddPolicy("deletepolicy",
-            //            builder => builder.RequireRole(Policy.GetDeleteRoles(context)));
-            //    });
-            //}
+            PolicyRolesDbContext context = services.BuildServiceProvider().GetService<PolicyRolesDbContext>();
+            if (context.WriteRoles.Any())
+            {
+                services.AddAuthorization(options =>
+                {
+                    options.AddPolicy("writepolicy",
+                        builder => builder.RequireRole(Policy.GetWriteRoles(context)));
+                });
+            }
+            else
+            {
+                context.WriteRoles.Add(new WriteRole { Role = "Admin" });
+                context.SaveChanges();
+                services.AddAuthorization(options =>
+                {
+                    options.AddPolicy("writepolicy",
+                        builder => builder.RequireRole(Policy.GetWriteRoles(context)));
+                });
+            }
+            if (context.DeleteRoles.Any())
+            {
+                services.AddAuthorization(options =>
+                {
+                    options.AddPolicy("deletepolicy",
+                        builder => builder.RequireRole(Policy.GetDeleteRoles(context)));
+                });
+            }
+            else
+            {
+                context.DeleteRoles.Add(new DeleteRole { Role = "Admin" });
+                context.SaveChanges();
+                services.AddAuthorization(options =>
+                {
+                    options.AddPolicy("deletepolicy",
+                        builder => builder.RequireRole(Policy.GetDeleteRoles(context)));
+                });
+            }
 
             services.AddTransient<IEmailSender, EmailSender>();
             services.Configure<AuthMessageSenderOptions>(Configuration);
