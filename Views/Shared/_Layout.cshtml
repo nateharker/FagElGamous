@@ -4,66 +4,74 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Fag el-Gamous</title>
-    <title>@ViewData["Title"] Fag el-Gamous</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    @*change to bug logo*@
+    <link rel="icon" type="image/x-icon" href="~/img/pyramid1.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="~/img/pyramid1.png" />
     <script src="~/js/site.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@100&display=swap" rel="stylesheet">
 </head>
-    <header>
+<body style="        color: #997B66;
+    background-color: #F1DCA7;">
+<header>
 
 
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow topnav fontwhite" style="color: #997B66; background-color: #FFCB69;">
-                <a class="navbar-brand fontsize" asp-area="" asp-controller="Home" asp-action="Index">
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <partial name="_LoginPartial" />
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark fontsize" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark fontsize" asp-area="" asp-controller="Home" asp-action="Summary">Summary</a>
-                        </li>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow topnav fontwhite" style="color: #997B66; background-color: #FFCB69;">
+        <div class="container">
+        <a class="navbar-brand fontsize" asp-area="" asp-controller="Home" asp-action="Index">
+            <img src="~/img/pyramid1.png" height="30" width="30" />
+            Fag el-Gamous
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+            <partial name="_LoginPartial" />
+            <ul class="navbar-nav flex-grow-1">
+                <li class="nav-item">
+                    <a class="nav-link text-dark fontsize" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark fontsize" asp-area="" asp-controller="Home" asp-action="Summary">Summary</a>
+                </li>
 
-                    </ul>
-                </div>
+            </ul>
+        </div>
 
-            </div>
-        </nav>
+        </div>
+    </nav>
 
-    </header>
-    <br /><br />
-    <div class="container">
-        <div class="row">
-            <div class="col-sm">
+</header>
+<br />
+<br />
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
 
-            </div>
-            <div class="col-lg-10">
-                @RenderBody()
-            </div>
-            <div class="col-sm">
+        </div>
+        <div class="col-lg-10">
+            @RenderBody()
+        </div>
+        <div class="col-sm">
 
-            </div>
         </div>
     </div>
+</div>
 
 
 
-    <footer class="border-top footer text-muted text-center">
-        <div class="container">
-            &copy; 2021 - Fag el-Gamous - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @RenderSection("Scripts", required: false)
+<footer class="border-top footer text-muted text-center">
+    <div class="container">
+        &copy; 2021 - Fag el-Gamous - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    </div>
+</footer>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+@RenderSection("Scripts", required: false)
 </body>
 </html>
