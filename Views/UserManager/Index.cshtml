@@ -12,15 +12,15 @@
     <title>@ViewData["Title"] - Fag el-Gamous</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
-    @*fix to bug logo
+    @*fix to bug logo*@
         <link rel="icon" type="image/x-icon" href="~/img/pyramid1.png" />
-        <link rel="shortcut icon" type="image/x-icon" href="~/img/pyramid1.png" />*@
+        <link rel="shortcut icon" type="image/x-icon" href="~/img/pyramid1.png" />
     <script src="~/js/site.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    @*<link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300&display=swap" rel="stylesheet" type="text/css">*@
+    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300&display=swap" rel="stylesheet" type="text/css">
 </head>
 <body style="color: #997B66;background-color: #F1DCA7;">
-    @*
+    
         <header>
             <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow topnav fontwhite" style="color: #997B66; background-color: #FFCB69;">
                 <div class="container">
@@ -92,13 +92,13 @@
                         </tbody>
                     </table>
                     @*tag helper used to dynamically show the correct number of pages and create the buttons for them*@
-    @*<div class="text-center">
-        <div page-info="@Model.PageNumberingInfo" page-url-usertype="@Model.UserTypeSelected" page-classes-enabled="true"
-             page-class="btn" page-class-normal="btn-outline-dark" page-class-selected="btn-secondary" class="btn-group pull-right m-1">
+                <div class="text-center">
+                    <div page-info="@Model.PageNumberingInfo" page-url-usertype="@Model.UserTypeSelected" page-classes-enabled="true"
+                         page-class="btn" page-class-normal="btn-outline-dark" page-class-selected="btn-secondary" class="btn-group pull-right m-1">
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-    </div>
-    </div>
     <br />
 
     </div>
@@ -114,4 +114,3 @@
 
 </body>
 </html>
-*@
