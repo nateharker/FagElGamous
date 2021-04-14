@@ -1,20 +1,7 @@
 ﻿@model IEnumerable<string>
 
 <h4>Filter by Sex</h4>
-<a asp-action="Index" asp-controller="Researcher" asp-route-sex="" class="btn btn-block @(ViewBag.Sex is null ? "btn-secondary" : "btn-outline-dark")">Clear Filter</a>
-@if ("M" == ViewBag.Sex)
-{
-    <a asp-action="Index" asp-controller="Researcher" asp-route-sex="M" class="btn btn-block btn-secondary">Male</a>
-}
-else
-{
-    <a asp-action="Index" asp-controller="Researcher" asp-route-sex="M" class="btn btn-block btn-outline-dark">Male</a>
-}
-@if ("F" == ViewBag.Sex)
-{
-    <a asp-action="Index" asp-controller="Researcher" asp-route-sex="F" class="btn btn-block btn-secondary">Female</a>
-}
-else
-{
-    <a asp-action="Index" asp-controller="Researcher" asp-route-sex="F" class="btn btn-block btn-outline-dark">Female</a>
+<a asp-action="Index" asp-controller="Admin" asp-route-sex="" class="btn btn-block @(ViewBag.Sex is null ? "btn-secondary" : "btn-outline-dark")">Clear Filter</a>
+<a asp-action="Index" asp-controller="Admin" asp-route-sex="M" class="btn btn-block @(ViewBag.Sex == "M" ? "btn-secondary" : "btn-outline-dark")">Male</a>
+<a asp-action="Index" asp-controller="Admin" asp-route-sex="F" class="btn btn-block @(ViewBag.Sex == "F" ? "btn-secondary" : "btn-outline-dark")">Female</a>
 }

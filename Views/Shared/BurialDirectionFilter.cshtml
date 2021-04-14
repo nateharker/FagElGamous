@@ -1,20 +1,7 @@
 ﻿<h4>Filter by Burial Direction</h4>
-<a asp-action="Index" asp-route-direction="" class="btn btn-block @(ViewBag.BurialDirection is null ? "btn-secondary" : "btn-outline-dark")">Clear Filter</a>
+<a asp-action="BurialDirection" asp-route-direction="" class="btn btn-block @(ViewBag.BurialDirection is null ? "btn-secondary" : "btn-outline-dark")">Clear Filter</a>
+<a asp-action="BurialDirection" asp-route-direction="E" class="btn btn-block @(ViewBag.BurialDirection == "E" ? "btn-secondary" : "btn-outline-dark")">East</a>
+<a asp-action="BurialDirection" asp-route-direction="W" class="btn btn-block @(ViewBag.BurialDirection == "W" ? "btn-secondary" : "btn-outline-dark")">West</a>
 
-@if ("E" == ViewBag.BurialDirection)
-{
-    <a asp-action="BurialDirection" asp-route-direction="E" class="btn btn-block btn-secondary">East</a>
-}
-else
-{
-    <a asp-action="BurialDirection" asp-route-direction="E" class="btn btn-block btn-outline-dark">East</a>
-}
-@if ("W" == ViewBag.BurialDirection)
-{
-    <a asp-action="BurialDirection" asp-route-direction="W" class="btn btn-block btn-secondary">West</a>
-}
-else
-{
-    <a asp-action="BurialDirection" asp-route-direction="W" class="btn btn-block btn-outline-dark">West</a>
-}
+
 
