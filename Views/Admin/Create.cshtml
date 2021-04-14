@@ -73,16 +73,20 @@
                 <input asp-for="BurialNum" class="form-control" />
                 <span asp-validation-for="BurialNum" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="AreaHillBurials" class="control-label">Area/Hill/Misc. Burial Number</label>
-                <input asp-for="AreaHillBurials" class="form-control" />
-                <span asp-validation-for="AreaHillBurials" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Tomb" class="control-label">Tomb Number</label>
-                <input asp-for="Tomb" class="form-control" />
-                <span asp-validation-for="Tomb" class="text-danger"></span>
-            </div>
+            //@*collapsible menu?*@
+            <button type="button" class="collapsible">Misc. Burial Info</button>
+            <div class="content">
+                <div class="form-group">
+                    <label asp-for="AreaHillBurials" class="control-label">Area/Hill/Misc. Burial Number</label>
+                    <input asp-for="AreaHillBurials" class="form-control" />
+                    <span asp-validation-for="AreaHillBurials" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Tomb" class="control-label">Tomb Number</label>
+                    <input asp-for="Tomb" class="form-control" />
+                    <span asp-validation-for="Tomb" class="text-danger"></span>
+                </div>
+             </div>
             <div class="form-group">
                 <label asp-for="YearExcav" class="control-label">Year Excavated</label>
                 <input asp-for="YearExcav" class="form-control" />
