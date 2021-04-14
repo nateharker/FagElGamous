@@ -3,19 +3,19 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <form method="post" asp-action="BurialLocSearch" class="form-inline">
+            <form method="post" asp-action="BurialLocSearch" class="form-inline" >
                 <select class="form-control" asp-for="NorthSouth">
                     <option value="">Select One</option>
                     <option value="N">North</option>
                     <option value="S">South</option>
                 </select>
-                <input class="form-control" placeholder="N/S Low" asp-for="NSLow" />
+                <input class="form-control" placeholder="N/S Low" asp-for="NSLow" style="width:120px"/>
                 <select class="form-control" asp-for="EastWest">
                     <option value="">Select One</option>
                     <option value="E">East</option>
                     <option value="W">West</option>
                 </select>
-                <input class="form-control" placeholder="E/W Low" asp-for="EWLow" />
+                <input class="form-control" placeholder="E/W Low" asp-for="EWLow" style="width:120px"/>
                 <select class="form-control" asp-for="Subplot">
                     <option value="">Select One</option>
                     <option value="NW">NW</option>
@@ -23,7 +23,7 @@
                     <option value="NE">NE</option>
                     <option value="SE">SE</option>
                 </select>
-                <input class="form-control" placeholder="Burial #" asp-for="BurialNumber" />
+                <input class="form-control" placeholder="Burial #" asp-for="BurialNumber" style="width:120px"/>
                 <button type="submit" class="btn btn-secondary">Search</button>
             </form>
         </div>
