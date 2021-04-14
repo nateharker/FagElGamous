@@ -26,7 +26,7 @@ namespace FagElGamous
         {
             int pageSize = 100;
             var bYUExcavationDbContext = _context.BioSampleData.Include(b => b.Burial);
-            return View(new BioSampleListViewModel
+            return View(new BurialListViewModel
             {
                 BioSampleDatas = await bYUExcavationDbContext
                 .Skip((pageNum - 1) * pageSize)
