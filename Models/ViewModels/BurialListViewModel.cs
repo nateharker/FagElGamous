@@ -12,5 +12,6 @@ namespace FagElGamous.Models.ViewModels
         public List<BioSampleData> BioSampleDatas { get; set; }
         public PageNumberingInfo PageNumberingInfo { get; set; }
         public string FilterString { get; set; }
+        public LocSearch LocSearch { get; set; }
     }
 }
