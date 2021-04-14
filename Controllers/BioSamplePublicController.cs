@@ -49,7 +49,7 @@ namespace FagElGamous
                 int nsHigh = search.NSLow + 10;
                 int ewHigh = search.EWLow + 10;
                 string burialId = search.NorthSouth + search.NSLow.ToString() + nsHigh.ToString() + search.EastWest + search.EWLow.ToString() + ewHigh.ToString() + search.Subplot + search.BurialNumber.ToString();
-                return View(new BurialListViewModel
+                return View("Index", new BurialListViewModel
                 {
                     BioSampleDatas = await _context.BioSampleData
                     .Where(x => x.BurialId.Contains(burialId))
