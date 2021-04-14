@@ -25,10 +25,9 @@ namespace FagElGamous
         public async Task<IActionResult> Index(string? sex, int pageNum = 1)
         {
             int pageSize = 100;
-<<<<<<< Updated upstream
-=======
+
             ViewBag.Sex = sex;
->>>>>>> Stashed changes
+
             return View(new BurialListViewModel
             {
                 BurialDatas = await _context.BurialData

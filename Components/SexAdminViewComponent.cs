@@ -12,7 +12,7 @@ namespace FagElGamous.Components
         private BYUExcavationDbContext _context;
         public SexAdminViewComponent(BYUExcavationDbContext context)
         {
-            context = _context;
+            _context = context;
         }
         public IViewComponentResult Invoke()
         {
