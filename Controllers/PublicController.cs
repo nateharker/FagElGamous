@@ -135,6 +135,34 @@ namespace FagElGamous
             });
         }
 
+        [HttpPost]
+        public async Task<IActionResult> BurialLocSearch(LocSearch search, int pageNum = 1)
+        {
+            if (ModelState.IsValid)
+            {
+                int pageSize = 5;
+                int nsHigh = search.NSLow + 10;
+                int ewHigh = search.EWLow + 10;
+                string burialId = search.NorthSouth + search.NSLow.ToString() + nsHigh.ToString() + search.EastWest + search.EWLow.ToString() + ewHigh.ToString() + search.Subplot + search.BurialNumber.ToString();
+                return View(new BurialListViewModel
+                {
+                    BurialDatas = await _context.BurialData
+                    .Where(x => x.BurialId.Contains(burialId))
+                    .Skip((pageNum - 1) * pageSize)
+                    .Take(pageSize)
+                    .ToListAsync(),
+
+                    PageNumberingInfo = new PageNumberingInfo
+                    {
+                        NumItemsPerPage = pageSize,
+                        CurrentPage = pageNum,
+                        TotalNumItems = (burialId == null ? _context.BurialData.Count() : _context.BurialData.Where(x => x.BurialId == burialId).Count())
+                    }
+                });
+            }
+            return RedirectToAction("Index");
+        }
+
         // GET: Public/Details/5
         public async Task<IActionResult> Details(string id)
         {
