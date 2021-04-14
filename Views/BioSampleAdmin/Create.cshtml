@@ -5,9 +5,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Create</h1>
+@*form for admin to create a new record for the bio sample data table*@
+<h1>Create A New Record</h1>
 
-<h4>BioSampleData</h4>
+<h4>Bio Sample Data</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -118,7 +119,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="BurialId" class="control-label">Burial ID</label>
-                <select asp-for="BurialId" class ="form-control" asp-items="ViewBag.BurialId"></select>
+                <select asp-for="BurialId" class="form-control" asp-items="ViewBag.BurialId"></select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
