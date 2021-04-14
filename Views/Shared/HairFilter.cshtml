@@ -1,0 +1,7 @@
+﻿<h4>Filter by Hair Color</h4>
+<a asp-action="HairFilter" asp-route-hair="" class="btn btn-block @(ViewBag.Hair is null ? "btn-secondary" : "btn-outline-dark")">Clear Filter</a>
+<a asp-action="HairFilter" asp-route-hair="B" class="btn btn-block @(ViewBag.Hair == "B" ? "btn-secondary" : "btn-outline-dark")">Brown</a>
+<a asp-action="HairFilter" asp-route-hair="K" class="btn btn-block @(ViewBag.Hair == "K" ? "btn-secondary" : "btn-outline-dark")">Black</a>
+<a asp-action="HairFilter" asp-route-hair="A" class="btn btn-block @(ViewBag.Hair == "A" ? "btn-secondary" : "btn-outline-dark")">Auburn</a>
+<a asp-action="HairFilter" asp-route-hair="R" class="btn btn-block @(ViewBag.Hair == "R" ? "btn-secondary" : "btn-outline-dark")">Red</a>
+<a asp-action="HairFilter" asp-route-hair="D" class="btn btn-block @(ViewBag.Hair == "D" ? "btn-secondary" : "btn-outline-dark")">Blonde</a>
