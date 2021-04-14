@@ -44,23 +44,26 @@
                                 <li class="nav-item">
                                     <a class="nav-link text-dark fontsize" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                                 </li>
-                                @if (Policy.IsInDeleteRole(UserManager.GetRolesAsync(UserManager.GetUserAsync(User).Result).Result, context))
+                                @if (UserManager.GetUserAsync(User) != null)
                                 {
-                                    <li class="nav-item">
-                                        <a class="nav-link text-dark fontsize" asp-area="" asp-controller="Admin" asp-action="Index">Burial Records</a>
-                                    </li>
-                                }
-                                else if (Policy.IsInWriteRole(UserManager.GetRolesAsync(UserManager.GetUserAsync(User).Result).Result, context))
-                                {
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark fontsize" asp-area="" asp-controller="Researcher" asp-action="Index">Burial Records</a>
-                                </li>
+                                    @if (Policy.IsInDeleteRole(UserManager.GetRolesAsync(UserManager.GetUserAsync(User).Result).Result, context))
+                                    {
+                                        <li class="nav-item">
+                                            <a class="nav-link text-dark fontsize" asp-area="" asp-controller="Admin" asp-action="Index">Burial Records</a>
+                                        </li>
+                                    }
+                                    else if (Policy.IsInWriteRole(UserManager.GetRolesAsync(UserManager.GetUserAsync(User).Result).Result, context))
+                                    {
+                                        <li class="nav-item">
+                                            <a class="nav-link text-dark fontsize" asp-area="" asp-controller="Researcher" asp-action="Index">Burial Records</a>
+                                        </li>
+                                    }
                                 }
                                 else
                                 {
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark fontsize" asp-area="" asp-controller="Public" asp-action="Index">Burial Records</a>
-                                </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark fontsize" asp-area="" asp-controller="Public" asp-action="Index">Burial Records</a>
+                                    </li>
                                 }
 
                             </ul>
@@ -99,13 +102,16 @@
                 researchers have performed a variety of analyses on the items excavated including carbon dating, DNA sequencing,
                 and others. <br />   <u style=" font-size: 18px !important; font-weight: 500; letter-spacing: 1px; text-align:center;">
                     <br />
-                @if (Policy.IsInDeleteRole(UserManager.GetRolesAsync(UserManager.GetUserAsync(User).Result).Result, context))
+                @if (UserManager.GetUserAsync(User) != null)
                 {
-                    <a class="text-center" asp-area="" asp-controller="Admin" asp-action="Index">Click here to access our database</a>
-                }
-                else if(Policy.IsInWriteRole(UserManager.GetRolesAsync(UserManager.GetUserAsync(User).Result).Result, context))
-                {
-                    <a class="text-center" asp-area="" asp-controller="Researcher" asp-action="Index">Click here to access our database</a>
+                    @if (Policy.IsInDeleteRole(UserManager.GetRolesAsync(UserManager.GetUserAsync(User).Result).Result, context))
+                    {
+                        <a class="text-center" asp-area="" asp-controller="Admin" asp-action="Index">Click here to access our database</a>
+                    }
+                    else if(Policy.IsInWriteRole(UserManager.GetRolesAsync(UserManager.GetUserAsync(User).Result).Result, context))
+                    {
+                        <a class="text-center" asp-area="" asp-controller="Researcher" asp-action="Index">Click here to access our database</a>
+                    }
                 }
                 else
                 {

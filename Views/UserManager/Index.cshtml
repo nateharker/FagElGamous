@@ -41,17 +41,20 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark fontsize" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                        @if (Policy.IsInDeleteRole(UserManager.GetRolesAsync(UserManager.GetUserAsync(User).Result).Result, context))
+                        @if (UserManager.GetUserAsync(User) != null)
                         {
-                            <li class="nav-item">
-                                <a class="nav-link text-dark fontsize" asp-area="" asp-controller="Admin" asp-action="Index">Burial Records</a>
-                            </li>
-                        }
-                        else if (Policy.IsInWriteRole(UserManager.GetRolesAsync(UserManager.GetUserAsync(User).Result).Result, context))
-                        {
-                            <li class="nav-item">
-                                <a class="nav-link text-dark fontsize" asp-area="" asp-controller="Researcher" asp-action="Index">Burial Records</a>
-                            </li>
+                            @if (Policy.IsInDeleteRole(UserManager.GetRolesAsync(UserManager.GetUserAsync(User).Result).Result, context))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark fontsize" asp-area="" asp-controller="Admin" asp-action="Index">Burial Records</a>
+                                </li>
+                            }
+                            else if (Policy.IsInWriteRole(UserManager.GetRolesAsync(UserManager.GetUserAsync(User).Result).Result, context))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark fontsize" asp-area="" asp-controller="Researcher" asp-action="Index">Burial Records</a>
+                                </li>
+                            }
                         }
                         else
                         {

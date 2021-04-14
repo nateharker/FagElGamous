@@ -9,13 +9,16 @@
     <div class="row">
         <div class="col-4 text-center">
             @*Burial Database buttons*@
-            @if (Policy.IsInDeleteRole(UserManager.GetRolesAsync(UserManager.GetUserAsync(User).Result).Result, context))
+            @if (UserManager.GetUserAsync(User) != null)
             {
-                <button class="btn btn-secondary btn-block mx-1" onclick="location.href='@Url.Action("Index", "Admin")'">Burial Database</button>
-            }
-            else if (Policy.IsInWriteRole(UserManager.GetRolesAsync(UserManager.GetUserAsync(User).Result).Result, context))
-            {
-                <button class="btn btn-secondary btn-block mx-1" onclick="location.href='@Url.Action("Index", "Researcher")'">Burial Database</button>
+                @if (Policy.IsInDeleteRole(UserManager.GetRolesAsync(UserManager.GetUserAsync(User).Result).Result, context))
+                {
+                    <button class="btn btn-secondary btn-block mx-1" onclick="location.href='@Url.Action("Index", "Admin")'">Burial Database</button>
+                }
+                else if (Policy.IsInWriteRole(UserManager.GetRolesAsync(UserManager.GetUserAsync(User).Result).Result, context))
+                {
+                    <button class="btn btn-secondary btn-block mx-1" onclick="location.href='@Url.Action("Index", "Researcher")'">Burial Database</button>
+                }
             }
             else
             {
@@ -24,13 +27,16 @@
         </div>
         <div class="col-4 text-center">
             @*C14 Database Buttons*@
-            @if (Policy.IsInDeleteRole(UserManager.GetRolesAsync(UserManager.GetUserAsync(User).Result).Result, context))
+            @if (UserManager.GetUserAsync(User) != null)
             {
-                <button class="btn btn-secondary btn-block mx-1" onclick="location.href='@Url.Action("Index", "C14Admin")'">C14 Database</button>
-            }
-            else if (Policy.IsInWriteRole(UserManager.GetRolesAsync(UserManager.GetUserAsync(User).Result).Result, context))
-            {
-                <button class="btn btn-secondary btn-block mx-1" onclick="location.href='@Url.Action("Index", "C14Researcher")'">C14 Database</button>
+                @if (Policy.IsInDeleteRole(UserManager.GetRolesAsync(UserManager.GetUserAsync(User).Result).Result, context))
+                {
+                    <button class="btn btn-secondary btn-block mx-1" onclick="location.href='@Url.Action("Index", "C14Admin")'">C14 Database</button>
+                }
+                else if (Policy.IsInWriteRole(UserManager.GetRolesAsync(UserManager.GetUserAsync(User).Result).Result, context))
+                {
+                    <button class="btn btn-secondary btn-block mx-1" onclick="location.href='@Url.Action("Index", "C14Researcher")'">C14 Database</button>
+                }
             }
             else
             {
@@ -39,13 +45,16 @@
         </div>
         <div class="col-4 text-center">
             @*Bio Sample Database*@
-            @if (Policy.IsInDeleteRole(UserManager.GetRolesAsync(UserManager.GetUserAsync(User).Result).Result, context))
+            @if (UserManager.GetUserAsync(User) != null)
             {
-                <button class="btn btn-secondary btn-block mx-1" onclick="location.href='@Url.Action("Index", "BioSampleAdmin")'">Bio Sample Database</button>
-            }
-            else if (Policy.IsInWriteRole(UserManager.GetRolesAsync(UserManager.GetUserAsync(User).Result).Result, context))
-            {
-                <button class="btn btn-secondary btn-block mx-1" onclick="location.href='@Url.Action("Index", "BioSampleResearcher")'">Bio Sample Database</button>
+                @if (Policy.IsInDeleteRole(UserManager.GetRolesAsync(UserManager.GetUserAsync(User).Result).Result, context))
+                {
+                    <button class="btn btn-secondary btn-block mx-1" onclick="location.href='@Url.Action("Index", "BioSampleAdmin")'">Bio Sample Database</button>
+                }
+                else if (Policy.IsInWriteRole(UserManager.GetRolesAsync(UserManager.GetUserAsync(User).Result).Result, context))
+                {
+                    <button class="btn btn-secondary btn-block mx-1" onclick="location.href='@Url.Action("Index", "BioSampleResearcher")'">Bio Sample Database</button>
+                }
             }
             else
             {
