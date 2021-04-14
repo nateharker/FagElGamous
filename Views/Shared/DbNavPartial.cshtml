@@ -9,7 +9,7 @@
     <div class="row">
         <div class="col-4 text-center">
             @*Burial Database buttons*@
-            @if (UserManager.GetRolesAsync(UserManager.GetUserAsync(User).Result) != null)
+            @if (User.Identity.IsAuthenticated)
             {
                 @if (Policy.IsInDeleteRole(UserManager.GetRolesAsync(UserManager.GetUserAsync(User).Result).Result, context))
                 {
@@ -27,7 +27,7 @@
         </div>
         <div class="col-4 text-center">
             @*C14 Database Buttons*@
-            @if (UserManager.GetRolesAsync(UserManager.GetUserAsync(User).Result) != null)
+            @if (User.Identity.IsAuthenticated)
             {
                 @if (Policy.IsInDeleteRole(UserManager.GetRolesAsync(UserManager.GetUserAsync(User).Result).Result, context))
                 {
@@ -45,7 +45,7 @@
         </div>
         <div class="col-4 text-center">
             @*Bio Sample Database*@
-            @if (UserManager.GetRolesAsync(UserManager.GetUserAsync(User).Result) != null)
+            @if (User.Identity.IsAuthenticated)
             {
                 @if (Policy.IsInDeleteRole(UserManager.GetRolesAsync(UserManager.GetUserAsync(User).Result).Result, context))
                 {

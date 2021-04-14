@@ -41,7 +41,7 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark fontsize" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                        @if (UserManager.GetRolesAsync(UserManager.GetUserAsync(User).Result) != null)
+                        @if (User.Identity.IsAuthenticated)
                         {
                             @if (Policy.IsInDeleteRole(UserManager.GetRolesAsync(UserManager.GetUserAsync(User).Result).Result, context))
                             {
