@@ -1,4 +1,4 @@
-﻿@model BioSampleListViewModel
+﻿@model BurialListViewModel
 
 @{
     ViewData["Title"] = "Bio Sample Data";
@@ -8,7 +8,7 @@
 <h1>Bio Sample Data</h1>
 <partial name="DbNavPartial" />
 <br />
-<partial name="BurialLocSearch" />
+<partial name="BurialLocSearch" model="@Model.LocSearch"/>
 <p>
     <a asp-action="Create">Create New</a>
 </p>
