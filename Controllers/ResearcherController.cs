@@ -45,7 +45,7 @@ namespace FagElGamous
             }); ;
         }
 
-        public async Task<IActionResult> BurialDirection(string? direction, int pageNum)
+        public async Task<IActionResult> BurialDirection(string? direction, int pageNum = 1)
         {
             int pageSize = 50;
             ViewBag.BurialDirection = direction;
@@ -68,7 +68,7 @@ namespace FagElGamous
             });
         }
 
-        public async Task<IActionResult> AgeFilter(string? age, int pageNum)
+        public async Task<IActionResult> AgeFilter(string? age, int pageNum = 1)
         {
             int pageSize = 50;
             ViewBag.Age = age;
@@ -91,7 +91,7 @@ namespace FagElGamous
             });
         }
 
-        public async Task<IActionResult> HairFilter(string? hair, int pageNum)
+        public async Task<IActionResult> HairFilter(string? hair, int pageNum = 1)
         {
             int pageSize = 50;
             ViewBag.Hair = hair;
@@ -114,7 +114,7 @@ namespace FagElGamous
             });
         }
 
-        public async Task<IActionResult> WrappingFilter(string? wrapping, int pageNum)
+        public async Task<IActionResult> WrappingFilter(string? wrapping, int pageNum = 1)
         {
             int pageSize = 50;
             ViewBag.Wrapping = wrapping;
