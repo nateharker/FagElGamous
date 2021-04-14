@@ -1,0 +1,28 @@
+﻿@model LocSearch
+<h3>Find record by burial location ID</h3>
+<div class="container">
+    <form method="post" asp-action="BurialLocSearch" class="form-inline">
+        <select class="form-control" asp-for="NorthSouth">
+            <option value="">Select One</option>
+            <option value="N">North</option>
+            <option value="S">South</option>
+        </select>
+        <input type="number" class="form-control" placeholder="N/S Low" asp-for="NSLow" />
+        <select class="form-control" asp-for="EastWest">
+            <option value="">Select One</option>
+            <option value="E">East</option>
+            <option value="W">West</option>
+        </select>
+        <input type="number" class="form-control" placeholder="E/W Low" asp-for="EWLow" />
+        <select class="form-control" asp-for="Subplot">
+            <option value="">Select One</option>
+            <option value="NW">NW</option>
+            <option value="SW">SW</option>
+            <option value="NE">NE</option>
+            <option value="SE">SE</option>
+        </select>
+        <input type="number" class="form-control" placeholder="Burial #" asp-for="BurialNumber" />
+        <button type="submit" class="btn btn-secondary">Search</button>
+    </form>
+    <div asp-validation-summary="All" class="text-danger"></div>
+</div>
