@@ -9,6 +9,6 @@ namespace FagElGamous.Models.ViewModels
     {
         public List<BurialData> BurialDatas { get; set; }
         public PageNumberingInfo PageNumberingInfo { get; set; }
-        public string Sex { get; set; }
+        public string FilterString { get; set; }
     }
 }

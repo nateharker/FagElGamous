@@ -1,0 +1,6 @@
+﻿<h4>Filter by Age</h4>
+<a asp-action="AgeFilter" asp-route-age="" class="btn btn-block @(ViewBag.Age is null ? "btn-secondary" : "btn-outline-dark")">Clear Filter</a>
+<a asp-action="AgeFilter" asp-route-age="A" class="btn btn-block @(ViewBag.Age == "A" ? "btn-secondary" : "btn-outline-dark")">Adult</a>
+<a asp-action="AgeFilter" asp-route-age="C" class="btn btn-block @(ViewBag.Age == "C" ? "btn-secondary" : "btn-outline-dark")">Child</a>
+<a asp-action="AgeFilter" asp-route-age="I" class="btn btn-block @(ViewBag.Age == "I" ? "btn-secondary" : "btn-outline-dark")">Infant</a>
+<a asp-action="AgeFilter" asp-route-age="N" class="btn btn-block @(ViewBag.Age == "N" ? "btn-secondary" : "btn-outline-dark")">Newborn</a>

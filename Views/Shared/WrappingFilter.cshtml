@@ -1,0 +1,6 @@
+﻿<h4>Filter by Burial Wrapping</h4>
+<a asp-action="WrappingFilter" asp-route-wrapping="" class="btn btn-block @(ViewBag.Wrapping is null ? "btn-secondary" : "btn-outline-dark")">Clear Filter</a>
+<a asp-action="WrappingFilter" asp-route-wrapping="W" class="btn btn-block @(ViewBag.Wrapping == "W" ? "btn-secondary" : "btn-outline-dark")">Full</a>
+<a asp-action="WrappingFilter" asp-route-wrapping="H" class="btn btn-block @(ViewBag.Wrapping == "H" ? "btn-secondary" : "btn-outline-dark")">Partial</a>
+<a asp-action="WrappingFilter" asp-route-wrapping="B" class="btn btn-block @(ViewBag.Wrapping == "B" ? "btn-secondary" : "btn-outline-dark")">Bones</a>
+

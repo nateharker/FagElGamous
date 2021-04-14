@@ -4,17 +4,17 @@
 <a asp-action="Index" asp-controller="Researcher" asp-route-sex="" class="btn btn-block @(ViewBag.Sex is null ? "btn-secondary" : "btn-outline-dark")">Clear Filter</a>
 @if ("M" == ViewBag.Sex)
 {
-    <a asp-action="Index" asp-controller="Researcher" asp-route-sex="M" class="btn btn-block btn-secondary">M</a>
+    <a asp-action="Index" asp-controller="Researcher" asp-route-sex="M" class="btn btn-block btn-secondary">Male</a>
 }
 else
 {
-    <a asp-action="Index" asp-controller="Researcher" asp-route-sex="M" class="btn btn-block btn-outline-dark">M</a>
+    <a asp-action="Index" asp-controller="Researcher" asp-route-sex="M" class="btn btn-block btn-outline-dark">Male</a>
 }
 @if ("F" == ViewBag.Sex)
 {
-    <a asp-action="Index" asp-controller="Researcher" asp-route-sex="F" class="btn btn-block btn-secondary">F</a>
+    <a asp-action="Index" asp-controller="Researcher" asp-route-sex="F" class="btn btn-block btn-secondary">Female</a>
 }
 else
 {
-    <a asp-action="Index" asp-controller="Researcher" asp-route-sex="F" class="btn btn-block btn-outline-dark">F</a>
+    <a asp-action="Index" asp-controller="Researcher" asp-route-sex="F" class="btn btn-block btn-outline-dark">Female</a>
 }
