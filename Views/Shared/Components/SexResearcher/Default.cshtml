@@ -2,8 +2,18 @@
 
 <h4>Filter by Sex</h4>
 <a asp-action="Index" asp-controller="Researcher" asp-route-sex="" class="btn btn-block @(ViewBag.Sex is null ? "btn-secondary" : "btn-outline-dark")">Clear Filter</a>
-@foreach (string x in Model)
+@if ("M" == ViewBag.Sex)
 {
-    <a asp-action="Index" asp-controller="Researcher" asp-route-sex="@x" class="btn btn-block @(x == ViewBag.Sex ? "btn-secondary" : "btn-outline-dark")">@x</a>
-    <br />
+    <a asp-action="Index" asp-controller="Researcher" asp-route-sex="M" class="btn btn-block btn-secondary">M</a>
 }
+else
+{
+    <a asp-action="Index" asp-controller="Researcher" asp-route-sex="M" class="btn btn-block btn-outline-dark">M</a>
+}
+@if ("F" == ViewBag.Sex)
+{
+    <a asp-action="Index" asp-controller="Researcher" asp-route-sex="F" class="btn btn-block btn-secondary">F</a>
+}
+else
+{
+    <a asp-action="Index" asp-controller="Researcher" asp-route-sex="F" class="btn btn-block btn-outline-dark">F</a>
