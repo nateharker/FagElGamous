@@ -19,6 +19,7 @@
                 <input asp-for="BurialId" class="form-control" />
                 <span asp-validation-for="BurialId" class="text-danger"></span>
             </div>
+            <h5>Burial Location Information</h5>
             <div class="form-group">
                 <label asp-for="BurialLocNs" class="control-label">Burial Location North or South</label>
                 <select asp-for="BurialLocNs" class="form-control">
@@ -73,20 +74,17 @@
                 <input asp-for="BurialNum" class="form-control" />
                 <span asp-validation-for="BurialNum" class="text-danger"></span>
             </div>
-            //@*collapsible menu?*@
-            <button type="button" class="collapsible">Misc. Burial Info</button>
-            <div class="content">
-                <div class="form-group">
-                    <label asp-for="AreaHillBurials" class="control-label">Area/Hill/Misc. Burial Number</label>
-                    <input asp-for="AreaHillBurials" class="form-control" />
-                    <span asp-validation-for="AreaHillBurials" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Tomb" class="control-label">Tomb Number</label>
-                    <input asp-for="Tomb" class="form-control" />
-                    <span asp-validation-for="Tomb" class="text-danger"></span>
-                </div>
-             </div>
+            <h5>Miscellaneous Burial Location Information</h5>
+            <div class="form-group">
+                <label asp-for="AreaHillBurials" class="control-label">Area/Hill/Misc. Burial Number</label>
+                <input asp-for="AreaHillBurials" class="form-control" />
+                <span asp-validation-for="AreaHillBurials" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tomb" class="control-label">Tomb Number</label>
+                <input asp-for="Tomb" class="form-control" />
+                <span asp-validation-for="Tomb" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <label asp-for="YearExcav" class="control-label">Year Excavated</label>
                 <input asp-for="YearExcav" class="form-control" />
@@ -248,7 +246,7 @@
             @*somehow make this textbox bigger*@
             <div class="form-group">
                 <label asp-for="DescriptionOfTaken" class="control-label">Description of Taken</label>
-                <textarea asp-for="DescriptionOfTaken" class="form-control"  rows="3"></textarea>
+                <textarea asp-for="DescriptionOfTaken" class="form-control" rows="3"></textarea>
                 <span asp-validation-for="DescriptionOfTaken" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -729,7 +727,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="NuchalCrest" class="control-label">Nuchal Crest</label>
-                <select asp-for="NuchalCrest" class="form-control" >
+                <select asp-for="NuchalCrest" class="form-control">
                     <option value="">Select One</option>
                     <option value="0">0</option>
                     <option value="1">1</option>
