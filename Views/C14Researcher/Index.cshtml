@@ -1,0 +1,53 @@
+﻿@model IEnumerable<FagElGamous.Models.C14data>
+
+@{
+    ViewData["Title"] = "C14 Data";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>C14 Data</h1>
+<partial name="DbNavPartial" />
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Burial Location ID
+            </th>
+            <th>
+                Size (mL)
+            </th>
+            <th>
+                Foci
+            </th>
+            <th>
+                Conventional C14 Age Bp
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BurialLocNs) @Html.DisplayFor(modelItem => item.NsLow)/@Html.DisplayFor(modelItem => item.NsHigh) @Html.DisplayFor(modelItem => item.BurialLocEw) @Html.DisplayFor(modelItem => item.EwLow)/@Html.DisplayFor(modelItem => item.EwHigh) @Html.DisplayFor(modelItem => item.Subplot) #@Html.DisplayFor(modelItem => item.BurialNum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SizeMl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Foci)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Conventional14cAgeBp)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.C14Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.C14Id">Details</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

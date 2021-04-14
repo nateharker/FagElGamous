@@ -5,10 +5,9 @@ using System.Threading.Tasks;
 
 namespace FagElGamous.Models.ViewModels
 {
-    public class BurialListViewModel
+    public class BioSampleListViewModel
     {
-        public List<BurialData> BurialDatas { get; set; }
+        public List<BioSampleData> BioSampleDatas { get; set; }
         public PageNumberingInfo PageNumberingInfo { get; set; }
-        public string Sex { get; set; }
     }
 }

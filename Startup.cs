@@ -144,10 +144,13 @@ namespace FagElGamous
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute("sex",
+                    "Sex/{sex}",
+                    new { Controller = "Admin", action = "Index" });
+
                 endpoints.MapControllerRoute("usertype",
                     "UserManager/UserType/{usertype}",
-                    new { Controller = "UserManager", action = "Index" }
-                    );
+                    new { Controller = "UserManager", action = "Index" });
 
                 endpoints.MapControllerRoute(
                     name: "default",

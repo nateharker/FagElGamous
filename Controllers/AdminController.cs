@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using FagElGamous.Models;
 using FagElGamous.Models.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FagElGamous
 {
+    [Authorize(Policy = "deletepolicy")]
     public class AdminController : Controller
     {
         private readonly BYUExcavationDbContext _context;
@@ -20,12 +22,17 @@ namespace FagElGamous
         }
 
         // GET: Admin
-        public async Task<IActionResult> Index(int pageNum = 1)
+        public async Task<IActionResult> Index(string? sex, int pageNum = 1)
         {
             int pageSize = 100;
+<<<<<<< Updated upstream
+=======
+            ViewBag.Sex = sex;
+>>>>>>> Stashed changes
             return View(new BurialListViewModel
             {
                 BurialDatas = await _context.BurialData
+                .Where(x => x.Sex == sex || sex == null)
                 .Skip((pageNum - 1) * pageSize)
                 .Take(pageSize)
                 .ToListAsync(),
@@ -34,9 +41,11 @@ namespace FagElGamous
                 {
                     NumItemsPerPage = pageSize,
                     CurrentPage = pageNum,
-                    TotalNumItems = (_context.BurialData.Count())
-                }
-            });
+                    TotalNumItems = (sex == null ? _context.BurialData.Count() : _context.BurialData.Where(x => x.Sex == sex).Count())
+                },
+
+                Sex = sex
+            }); ;
         }
 
         // GET: Admin/Details/5

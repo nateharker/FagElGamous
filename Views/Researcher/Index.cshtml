@@ -1,4 +1,4 @@
-﻿@model IEnumerable<FagElGamous.Models.BurialData>
+﻿@model BurialListViewModel
 
 @{
     ViewData["Title"] = "Burial Records Summary";
@@ -6,60 +6,73 @@
 }
 
 <h1>Burial Records Summary</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>
-                Burial Location ID 
-            </th>
-            <th>
-                Date Excavated
-            </th>
-            <th>
-                Sex
-            </th>
-            <th>
-                Age at Death 
-            </th>
-            <th>
-                Burial Length
-            </th>
-            <th>
-                Burial Depth
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.BurialLocNs) @Html.DisplayFor(modelItem => item.NsLow)/@Html.DisplayFor(modelItem => item.NsHigh) @Html.DisplayFor(modelItem => item.BurialLocEw) @Html.DisplayFor(modelItem => item.EwLow)/@Html.DisplayFor(modelItem => item.EwHigh) @Html.DisplayFor(modelItem => item.Subplot) #@Html.DisplayFor(modelItem => item.BurialNum)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateExcav) @Html.DisplayFor(modelItem => item.MonthExcav) @Html.DisplayFor(modelItem => item.YearExcav)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Sex)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AgeAtDeath)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BurialLength)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BurialDepth)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.BurialId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.BurialId">Details</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div class="row">
+    <partial name="DbNavPartial" />
+    <div class="col-2">
+        <vc:sex-admin />
+    </div>
+    <div class="col-10">
+        <p>
+            <a asp-action="Create">Create New</a>
+        </p>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        Burial Location ID
+                    </th>
+                    <th>
+                        Date Excavated
+                    </th>
+                    <th>
+                        Sex
+                    </th>
+                    <th>
+                        Age at Death
+                    </th>
+                    <th>
+                        Burial Length
+                    </th>
+                    <th>
+                        Burial Depth
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.BurialDatas)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BurialLocNs) @Html.DisplayFor(modelItem => item.NsLow)/@Html.DisplayFor(modelItem => item.NsHigh) @Html.DisplayFor(modelItem => item.BurialLocEw) @Html.DisplayFor(modelItem => item.EwLow)/@Html.DisplayFor(modelItem => item.EwHigh) @Html.DisplayFor(modelItem => item.Subplot) #@Html.DisplayFor(modelItem => item.BurialNum)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DateExcav) @Html.DisplayFor(modelItem => item.MonthExcav) @Html.DisplayFor(modelItem => item.YearExcav)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Sex)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AgeAtDeath)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BurialLength)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BurialDepth)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.BurialId">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.BurialId">Details</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <div class="text-center">
+            <div page-info="@Model.PageNumberingInfo" page-classes-enabled="true"
+                 page-class="btn" page-class-normal="btn-outline-dark m-1" page-class-selected="btn-secondary m-1">
+            </div>
+        </div>
+    </div>
+</div>
