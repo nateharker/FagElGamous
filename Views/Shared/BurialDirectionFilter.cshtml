@@ -1,4 +1,4 @@
-﻿<h4>Filter by Sex</h4>
+﻿<h4>Filter by Burial Direction</h4>
 <a asp-action="Index" asp-route-direction="" class="btn btn-block @(ViewBag.BurialDirection is null ? "btn-secondary" : "btn-outline-dark")">Clear Filter</a>
 
 @if ("E" == ViewBag.BurialDirection)
@@ -15,6 +15,6 @@ else
 }
 else
 {
-    <a asp-action="BurialDirection" asp-route-direction="W" class="btn btn-block btn-secondary">West</a>
+    <a asp-action="BurialDirection" asp-route-direction="W" class="btn btn-block btn-outline-dark">West</a>
 }
 
