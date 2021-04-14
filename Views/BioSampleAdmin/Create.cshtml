@@ -19,87 +19,105 @@
                 <span asp-validation-for="BioSampleId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="RackNum" class="control-label"></label>
+                <label asp-for="RackNum" class="control-label">Rack Number</label>
                 <input asp-for="RackNum" class="form-control" />
                 <span asp-validation-for="RackNum" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="BagNum" class="control-label"></label>
+                <label asp-for="BagNum" class="control-label">Bag Number</label>
                 <input asp-for="BagNum" class="form-control" />
                 <span asp-validation-for="BagNum" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="BurialLocNs" class="control-label"></label>
-                <input asp-for="BurialLocNs" class="form-control" />
+                <label asp-for="BurialLocNs" class="control-label">Burial Location North or South</label>
+                <select asp-for="BurialLocNs" class="form-control">
+                    <option value="">Select One</option>
+                    <option value="N">North</option>
+                    <option value="S">South</option>
+                </select>
                 <span asp-validation-for="BurialLocNs" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="NsLow" class="control-label"></label>
+                <label asp-for="NsLow" class="control-label">North/South Location Low Value</label>
                 <input asp-for="NsLow" class="form-control" />
                 <span asp-validation-for="NsLow" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="NsHigh" class="control-label"></label>
+                <label asp-for="NsHigh" class="control-label">North/South Location High Value</label>
                 <input asp-for="NsHigh" class="form-control" />
                 <span asp-validation-for="NsHigh" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="BurialLocEw" class="control-label"></label>
-                <input asp-for="BurialLocEw" class="form-control" />
+                <label asp-for="BurialLocEw" class="control-label">Burial Location East or West</label>
+                <select asp-for="BurialLocEw" class="form-control">
+                    <option value="">Select One</option>
+                    <option value="E">East</option>
+                    <option value="W">West</option>
+                </select>
                 <span asp-validation-for="BurialLocEw" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="EwLow" class="control-label"></label>
+                <label asp-for="EwLow" class="control-label">East/West Location Low Value</label>
                 <input asp-for="EwLow" class="form-control" />
                 <span asp-validation-for="EwLow" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="EwHigh" class="control-label"></label>
+                <label asp-for="EwHigh" class="control-label">East/West Location High Value</label>
                 <input asp-for="EwHigh" class="form-control" />
                 <span asp-validation-for="EwHigh" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Subplot" class="control-label"></label>
-                <input asp-for="Subplot" class="form-control" />
+                <label asp-for="Subplot" class="control-label">Subplot/Area</label>
+                <select asp-for="Subplot" class="form-control">
+                    <option value="">Select One</option>
+                    <option value="NW">NorthWest</option>
+                    <option value="NE">NorthEast</option>
+                    <option value="SW">SouthWest</option>
+                    <option value="SE">SouthEast</option>
+                </select>
                 <span asp-validation-for="Subplot" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="BurialNum" class="control-label"></label>
+                <label asp-for="BurialNum" class="control-label">Burial Number</label>
                 <input asp-for="BurialNum" class="form-control" />
                 <span asp-validation-for="BurialNum" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="BurialItemId" class="control-label"></label>
+                <label asp-for="BurialItemId" class="control-label">Burial Item ID</label>
                 <input asp-for="BurialItemId" class="form-control" />
                 <span asp-validation-for="BurialItemId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="BioSampleDate" class="control-label"></label>
+                <label asp-for="BioSampleDate" class="control-label">Bio Sample Date</label>
                 <input asp-for="BioSampleDate" class="form-control" />
                 <span asp-validation-for="BioSampleDate" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="PrevSampled" class="control-label"></label>
-                <input asp-for="PrevSampled" class="form-control" />
+                <label asp-for="PrevSampled" class="control-label">Previously Sampled</label>
+                <select asp-for="PrevSampled" class="form-control">
+                    <option value="">Select One</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
                 <span asp-validation-for="PrevSampled" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ClusterNum" class="control-label"></label>
+                <label asp-for="ClusterNum" class="control-label">Cluster Number</label>
                 <input asp-for="ClusterNum" class="form-control" />
                 <span asp-validation-for="ClusterNum" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Notes" class="control-label"></label>
-                <input asp-for="Notes" class="form-control" />
+                <label asp-for="Notes" class="control-label">Notes</label>
+                <textarea asp-for="Notes" class="form-control" rows="3"></textarea>
                 <span asp-validation-for="Notes" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Initials" class="control-label"></label>
+                <label asp-for="Initials" class="control-label">Initials</label>
                 <input asp-for="Initials" class="form-control" />
                 <span asp-validation-for="Initials" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="BurialId" class="control-label"></label>
+                <label asp-for="BurialId" class="control-label">Burial ID</label>
                 <select asp-for="BurialId" class ="form-control" asp-items="ViewBag.BurialId"></select>
             </div>
             <div class="form-group">
